@@ -1,0 +1,24 @@
+button {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 7px;
+  border-width: thin;
+  margin: 5px;
+}
+.redButton {
+  border-color: red;
+  background-color: seashell;
+  color: red;
+}
+.regularButton {
+  border-color: black;
+  background-color: seashell;
+  color: black;
+}
+.whiteButton {
+  border-color: white;
+  background-color: white;
+  color: black;
+}
