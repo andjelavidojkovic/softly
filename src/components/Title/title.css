@@ -1,0 +1,28 @@
+.div-title-item {
+  height: 240px;
+  width: 530px;
+  font-family: "Bodoni 72";
+  background: #00261c;
+  color: #f2f1e7;
+  margin: 10px;
+}
+.heading-title {
+  font-size: 36px;
+  line-height: 40px;
+  text-align: left;
+  margin: 40px 10px 0px 40px;
+  padding-top: 30px;
+}
+.paragraph-introductions {
+  font-size: 14px;
+  line-height: 30px;
+  text-align: left;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.div-button-CTA-TEXT {
+  float: right;
+  margin-right: 40px;
+}
