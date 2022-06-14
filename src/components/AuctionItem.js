@@ -12,7 +12,7 @@ const AuctionItem = () => {
                     Company <br />
                     Time
                 </p>
-                <Button styleForButton="button--color-regular">
+                <Button>
                     BID
                 </Button>
             </div>

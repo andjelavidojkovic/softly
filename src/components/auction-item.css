@@ -14,10 +14,10 @@
 .div-company-time-button {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .paragraph-company-time {
   margin: 0;
-  margin-right: 76px;
   font-size: 14px;
   line-height: 30px;
 }
