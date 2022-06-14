@@ -1,23 +1,22 @@
 button {
   width: 150px;
-  height: 50px;
+  height: 44px;
   text-align: center;
   font-weight: bold;
-  border-radius: 7px;
+  border-radius: 4px;
   border-width: thin;
-  margin: 5px;
 }
-.redButton {
+.button--color-red {
   border-color: red;
   background-color: #f2f1e7;
   color: red;
 }
-.regularButton {
+.button--color-regular {
   border-color: black;
   background-color: #f2f1e7;
   color: black;
 }
-.whiteButton {
+.button--color-white {
   border-color: white;
   background-color: white;
   color: black;
