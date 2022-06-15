@@ -5,19 +5,17 @@
   font-weight: bold;
   border-radius: 4px;
   border-width: thin;
+  background-color: #f2f1e7;
 }
 .button--red {
   border-color: red;
-  background-color: #f2f1e7;
   color: red;
 }
 .button--regular {
   border-color: black;
-  background-color: #f2f1e7;
   color: black;
 }
 .button--white {
-  border-color: white;
-  background-color: white;
+  border-color: #f2f1e7;
   color: black;
 }

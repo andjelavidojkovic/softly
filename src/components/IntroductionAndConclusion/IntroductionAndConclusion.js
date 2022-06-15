@@ -1,10 +1,10 @@
 import React from "react";
-import './title.css'
+import './IntroductionAndConclusion.css'
 import Button from '../Button/Button.js'
 
-const Title = ({ element = '' }) => {
+const Title = ({ greenOrPinkElement = '' }) => {
     let title, buttonName, className
-    if (element === '') {
+    if (greenOrPinkElement === '') {
         title = 'Sell with Softly'
         buttonName = 'START'
         className = 'pink'
@@ -15,25 +15,25 @@ const Title = ({ element = '' }) => {
     }
 
     return (
-        <div className={`background--${className}`}>
+        <div className={`background background-${className}`}>
             <div>
                 {className === 'pink' ?
-                    <img src="../images/Rectangle 14.jpg" alt="pic" className={`img--${className}`} />
+                    <img src="../images/Rectangle 14.jpg" alt="pic" className={`img-${className}`} />
                     : null
                 }
             </div>
-            <div className={`div--${className}`} >
-                <h3 className={`heading-title-${className}`} >
+            <div>
+                <h3 className={`heading heading-title-${className}`} >
                     {title}
                 </h3>
-                <p className="paragraph-introductions">
+                <p className='paragraph-introductions'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    <div className={`div-button button-${className}`}>
+                        <Button styleForButton='primary'>
+                            {buttonName}
+                        </Button>
+                    </div>
                 </p>
-                <div className="div-button-CTA-TEXT">
-                    <Button styleForButton='primary' >
-                        {buttonName}
-                    </Button>
-                </div>
             </div>
         </div>
     )

@@ -5,14 +5,14 @@ import React from "react";
 import Header from "./components/Header";
 //import Auctions from "./components/Auctions";
 //import Experiences from "./components/Experiences";
-import Title from "./components/Title/Title";
+import IntroductionAndConclusion from "./components/IntroductionAndConclusion/IntroductionAndConclusion";
 
 const App = () => {
   return (
     <div>
       <Header />
-      <Title />
-      <Title element="asa" />
+      <IntroductionAndConclusion />
+      <IntroductionAndConclusion greenOrPinkElement="green" />
     </div>
   )
 }
