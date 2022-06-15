@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./components/Footer/Footer";
 //import AuctionItem from "./components/AuctionItem";
 //import Route from "./components/Route";
 //import About from "./components/About";
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <div>
       <Header />
+      <Footer />
       <IntroductionAndConclusion />
       <IntroductionAndConclusion greenOrPinkElement="green" />
     </div>
