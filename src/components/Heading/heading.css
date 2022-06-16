@@ -1,0 +1,11 @@
+.h3-heading {
+  font-family: 'Bodoni 72';
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  color: #00261c;
+  border-bottom: 5px solid #c9b1a9;
+  padding-bottom: 4px;
+  padding-right: 40px;
+  width: fit-content;
+}
