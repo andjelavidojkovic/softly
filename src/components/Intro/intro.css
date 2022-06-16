@@ -1,15 +1,19 @@
 .background {
   font-family: "Bodoni 72";
   color: #f2f1e7;
+}
+.wrap-intro {
   margin: 10px;
+  display: flex;
+  align-items: center;
 }
 .background-pink {
   background: #c9b1a9;
   height: 250px;
-  width: 1020px;
-  display: flex;
+  height: 250px;
   justify-content: space-between;
-  align-items: center;
+  flex-basis: 500px;
+  flex-shrink: 0;
 }
 .background-green {
   background: #00261c;
