@@ -1,0 +1,23 @@
+.div-auction-item {
+  margin: 30px;
+  color: #00261c;
+  font-family: "Bodoni 72";
+  font-size: 24px;
+  text-align: left;
+  width: 280px;
+}
+.img-rectangle6 {
+  height: 350px;
+  width: 280px;
+  border-bottom: 10px solid #00261c;
+}
+.div-company-time-button {
+  display: flex;
+  align-items: center;
+}
+.paragraph-company-time {
+  margin: 0;
+  margin-right: 76px;
+  font-size: 14px;
+  line-height: 30px;
+}

@@ -1,24 +1,16 @@
 import React from "react";
-import Button from "./components/Button";
+//import Route from "./components/Route";
+//import About from "./components/About";
+import Header from "./components/Header";
+//import Auctions from "./components/Auctions";
+//import Experiences from "./components/Experiences";
+import AuctionItem from "./components/AuctionItem";
 
 const App = () => {
   return (
     <div>
-      <div>
-        <Button name='OUT BID'
-          styleForButton='redButton'
-        />
-      </div>
-      <div>
-        <Button name='BID'
-          styleForButton='regularButton'
-        />
-      </div>
-      <div>
-        <Button name='START'
-          styleForButton='whiteButton'
-        />
-      </div>
+      <Header />
+      <AuctionItem />
     </div>
   )
 }
