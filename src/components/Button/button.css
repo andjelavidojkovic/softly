@@ -3,9 +3,11 @@
   height: 44px;
   text-align: center;
   font-weight: bold;
+  font-size: 18px;
   border-radius: 4px;
   border-width: thin;
   background-color: #f2f1e7;
+  font-family: "Orqquidea-Sans_(DEMO)";
 }
 .button--red {
   border-color: red;
@@ -16,6 +18,14 @@
   color: black;
 }
 .button--white {
-  border-color: #f2f1e7;
+  border-width: 0px;
   color: black;
+}
+.button--seeMore {
+  color: #00261c;
+  border-width: 0px;
+  font-family: "Bodoni 72";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
 }

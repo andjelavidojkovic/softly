@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Img = () => {
+const Image = ({ url }) => {
   return (
     <>
       <style>
@@ -11,9 +11,9 @@ const Img = () => {
                     width: 340px
                 }`}
       </style>
-      <img src="../images/Rectangle 14.jpg" alt="img" className="imgg" />
+      <img src={url} alt="img" className="imgg" />
     </>
   );
 };
 
-export default Img;
+export default Image;

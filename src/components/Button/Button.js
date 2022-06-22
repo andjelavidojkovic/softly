@@ -1,38 +1,42 @@
 import React from "react";
-import './button.css'
+import "./button.css";
+import Polygon from "./Polygon";
 
 const Button = ({ children, styleForButton }) => {
-    const getStyledButton = () => {
-        let buttonStyle = ''
+  let buttonStyle = "";
+  let orientation = "";
 
+  switch (styleForButton) {
+    case "primary":
+      buttonStyle = "white";
+      break;
 
-        switch (styleForButton) {
-            case 'primary':
-                buttonStyle = 'white'
-                break;
+    case "secondary":
+      buttonStyle = "red";
 
-            case 'secondary':
-                buttonStyle = 'red'
+      break;
 
-                break;
-            default:
-                buttonStyle = 'regular';
-                break;
-        }
+    case "See More":
+      buttonStyle = "seeMore";
+      orientation = "right";
 
-        return `button--${buttonStyle}`
-    }
+      break;
 
+    default:
+      buttonStyle = "regular";
+      break;
+  }
 
-    const classes = 'button ' + getStyledButton();
+  const classes = `button button--${buttonStyle}`;
 
-
-
-    return (
-        <button className={classes}>
-            {children}
-        </button>
-    )
-}
+  return (
+    <button className={classes}>
+      {children}
+      {buttonStyle === "red" || "regular" || "white" ? null : (
+        <Polygon orientation={orientation} />
+      )}
+    </button>
+  );
+};
 
 export default Button;
