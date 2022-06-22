@@ -2,7 +2,7 @@ import React from "react";
 import './IntroductionAndConclusion.css'
 import Button from '../Button/Button.js'
 
-const Title = ({ greenOrPinkElement = '' }) => {
+const IntroductionAndConclusion = ({ greenOrPinkElement = '' }) => {
     let title, buttonName, className
     if (greenOrPinkElement === '') {
         title = 'Sell with Softly'
@@ -40,4 +40,4 @@ const Title = ({ greenOrPinkElement = '' }) => {
 
 };
 
-export default Title;
+export default IntroductionAndConclusion;
