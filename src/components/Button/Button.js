@@ -2,7 +2,7 @@ import React from "react";
 import "./button.css";
 import Polygon from "./Polygon";
 
-const Button = ({ children, styleForButton }) => {
+const Button = ({ children, styleForButton, icon }) => {
   let buttonStyle = "";
   let orientation = "";
 
@@ -16,9 +16,21 @@ const Button = ({ children, styleForButton }) => {
 
       break;
 
-    case "See More":
+    case "seeMore":
       buttonStyle = "seeMore";
       orientation = "right";
+
+      break;
+
+    case "loadMore":
+      buttonStyle = "loadMore";
+      orientation = "bottom";
+
+      break;
+
+    case "sortBy":
+      buttonStyle = "sortBy";
+      orientation = "bottom";
 
       break;
 
@@ -32,9 +44,7 @@ const Button = ({ children, styleForButton }) => {
   return (
     <button className={classes}>
       {children}
-      {buttonStyle === "red" || "regular" || "white" ? null : (
-        <Polygon orientation={orientation} />
-      )}
+      {icon ? <Polygon orientation={orientation} url={icon} /> : null}
     </button>
   );
 };

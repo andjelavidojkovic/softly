@@ -13,11 +13,12 @@ const IntroductionAndConclusion = ({ title, buttonName, text, img }) => {
           <Image url={img} />
         </div>
       ) : null}
-      <div>
+
+      <div className={`container-${classColor}`}>
         <h3 className={`heading heading-title-${classColor}`}>{title}</h3>
         <p className="paragraph-introductions">
           {text}
-          <div className={`div-button button-${classColor}`}>
+          <div className={`div-button div-button--${classColor}`}>
             <Button styleForButton="primary">{buttonName}</Button>
           </div>
         </p>

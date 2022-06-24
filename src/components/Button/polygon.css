@@ -1,23 +1,17 @@
 .img-icon {
-  padding: 10px;
+  height: 28px;
+  width: 20px;
 }
 .rotateimg-left {
   transform: rotate(180deg);
-  height: 28px;
-  width: 20px;
 }
 .rotateimg-bottom {
   transform: rotate(90deg);
-  height: 28px;
-  width: 20px;
 }
 .rotateimg-top {
   transform: rotate(270deg);
-  height: 28px;
-  width: 20px;
 }
 .rotateimg-right {
   transform: rotate(0deg);
-  height: 28px;
-  width: 20px;
+  padding-left: 6px;
 }

@@ -1,58 +1,106 @@
-.background {
-  font-family: "Bodoni 72";
-  color: #f2f1e7;
-  margin: 10px;
+:root {
+  --primary: #f2f1e7;
+  --secondary: #00261c;
+  --softPink: #c9b1a9;
+  --font: "Bodoni 72";
 }
-.background-pink {
-  background: #c9b1a9;
-  height: 250px;
-  width: 1020px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.background {
+  font-family: var(--font);
+  color: var(--primary);
+  margin: 10px;
+  display: grid;
 }
 .background-green {
-  background: #00261c;
-  height: 240px;
-  width: 530px;
+  background: var(--secondary);
+  max-width: 530px;
+  min-height: 240px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-.img-pink {
-  border-bottom: 10px solid #00261c;
-  height: 140px;
-  width: 340px;
-  margin-left: 80px;
-  margin-right: 60px;
-  padding-top: 10px;
+.background-pink {
+  background: var(--softPink);
+  max-width: 1020px;
+  min-height: 250px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "img-pink container-pink";
+  align-items: center;
 }
 .heading {
   font-size: 36px;
   line-height: 40px;
-  text-align: left;
+  margin: 10px 10px 0px 0px;
 }
 .heading-title-green {
-  margin: 40px 10px 0px 40px;
-  padding-top: 30px;
+  padding-top: 26px;
 }
 .heading-title-pink {
-  margin: 10px 10px 0px 40px;
-  padding-top: 0px;
+  padding-top: 36px;
 }
 .paragraph-introductions {
   font-size: 14px;
   line-height: 30px;
   text-align: left;
-  margin-left: 40px;
-  margin-right: 40px;
   margin-top: 0px;
   margin-bottom: 5px;
 }
+.img-pink {
+  grid-area: "img-pink";
+  height: 140px;
+  max-width: 340px;
+  margin-left: 80px;
+  margin-right: 30px;
+}
+.img {
+  border-bottom: 10px solid var(--secondary);
+  width: 100%;
+}
+.container-green {
+  margin-left: 40px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.container-pink {
+  grid-area: "container-pink";
+  margin-right: 30px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
 .div-button {
   float: right;
-  margin-right: 0px;
-}
-.button-pink {
   padding-top: 10px;
 }
-.button-green {
+.div-button--green {
   padding-top: 30px;
+}
+@media (max-width: 860px) {
+  .img-pink {
+    display: none;
+  }
+  .background-pink {
+    max-width: 530px;
+    min-height: 240px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .heading-title-pink {
+    padding-top: 26px;
+  }
+  .container-pink {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+@media (max-width: 400px) {
+  .heading-title-green {
+    padding-top: 0px;
+  }
+  .heading {
+    line-height: 30px;
+    font-size: 30px;
+  }
 }
