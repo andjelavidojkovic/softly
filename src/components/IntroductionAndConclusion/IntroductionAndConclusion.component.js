@@ -1,7 +1,7 @@
 import React from "react";
-import "./IntroductionAndConclusion.css";
+import "./IntroductionAndConclusion.style.css";
 import Button from "../Button";
-import Image from "./Image";
+import Image from "../ImageComponents/Image";
 
 const IntroductionAndConclusion = ({ title, buttonName, text, img }) => {
   const classColor = img ? "pink" : "green";

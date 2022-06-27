@@ -1,0 +1,37 @@
+footer {
+  background: var(--softPink);
+  color: var(--primary);
+  min-height: 250px;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 30px;
+  padding-top: 0px;
+  margin-top: 0px;
+  font-size: 14px;
+}
+.div-blocks {
+  margin-top: 10px;
+}
+.footer--headnig {
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+.footer--paragraph {
+  margin-top: 0px;
+  font-size: 14px;
+  line-height: 30px;
+}
+/* 
+   flex-basis: 180px;
+  flex-shrink: 0;
+  margin-left: 80px;
+  margin-right: 80px;
+  */

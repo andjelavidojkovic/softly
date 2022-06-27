@@ -1,6 +1,6 @@
 import React from "react";
-import "./button.css";
-import Polygon from "./Polygon";
+import "./Button.style.css";
+import Polygon from "../ImageComponents/FatArrow.icon";
 
 const Button = ({ children, styleForButton, icon }) => {
   let buttonStyle = "";

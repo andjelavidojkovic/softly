@@ -1,3 +1,3 @@
-import IntroductionAndConclusion from './IntroductionAndConclusion';
+import IntroductionAndConclusion from "./IntroductionAndConclusion.component";
 
 export default IntroductionAndConclusion;

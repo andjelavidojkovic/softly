@@ -1,13 +1,10 @@
 import React from "react";
 import Button from "./components/Button";
-//import Polygon from "./components/Button/Polygon";
+import Footer from "./components/Footer";
 //import Footer from "./components/Footer/Footer";
 //import AuctionItem from "./components/AuctionItem";
-//import Intro from "./components/Intro/Intro";
 import IntroductionAndConclusion from "./components/IntroductionAndConclusion";
-//import Auctions from "./components/Auctions";
-//import Experiences from "./components/Experiences";
-//import Img from "./components/Intro/Img";
+import "./index.css";
 
 const App = () => {
   return (
@@ -48,6 +45,7 @@ const App = () => {
           Sort By
         </Button>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
