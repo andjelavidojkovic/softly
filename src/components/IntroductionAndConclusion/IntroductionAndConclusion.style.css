@@ -91,10 +91,13 @@
 }
 @media (max-width: 400px) {
   .heading-title-green {
-    padding-top: 0px;
+    padding-top: 20px;
   }
   .heading {
     line-height: 30px;
     font-size: 30px;
+  }
+  .background {
+    float: center;
   }
 }

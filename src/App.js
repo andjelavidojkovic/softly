@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 //import AuctionItem from "./components/AuctionItem";
 import IntroductionAndConclusion from "./components/IntroductionAndConclusion";
 import "./index.css";
+import AuctionItem from "./components/AuctionItem";
 
 const App = () => {
   return (
@@ -22,14 +23,13 @@ const App = () => {
         text={
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
         }
-        img={"./images/Rectangle 14.jpg"}
+        img={"./images/Rectangle14.jpg"}
       ></IntroductionAndConclusion>
-      <div style={{ margin: "5px" }}>
-        <Button>BID</Button>
-      </div>
-      <div style={{ margin: "5px" }}>
-        <Button styleForButton={"secondary"}>OUT BID</Button>
-      </div>
+
+      <AuctionItem url={"./images/Rectangle6.jpg"}> BID </AuctionItem>
+      <br />
+      <AuctionItem url={"./images/Rectangle14.jpg"}> BOOK </AuctionItem>
+
       <div style={{ margin: "5px" }}>
         <Button styleForButton={"seeMore"} icon={"./images/Polygon1.svg"}>
           See More

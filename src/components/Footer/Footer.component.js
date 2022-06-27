@@ -4,7 +4,7 @@ import "./Footer.style.css";
 const Footer = () => {
   return (
     <footer>
-      <div className="div-blocks">
+      <div className="div-blocks1">
         <p className="footer--headnig"> Softly Pty Ltd.</p>
         <p className="footer--paragraph">ABN: 88 888 888 888</p>
 
@@ -15,7 +15,7 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className="div-blocks">
+      <div className="div-blocks2">
         <p className="footer--headnig"> Follow Us </p>
         <ul>
           <li>Facebook</li>
@@ -26,7 +26,7 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className="div-blocks">
+      <div className="div-blocks3">
         <p className="footer--headnig"> Legal </p>
         <ul>
           <li>Privacy Policy</li>
