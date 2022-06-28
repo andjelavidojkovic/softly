@@ -1,17 +1,17 @@
-.background {
+.introduction-and-conclussion {
   font-family: var(--font);
   color: var(--primary);
   margin: 10px;
   display: grid;
 }
-.background-green {
+.introduction-and-conclussion__background-green {
   background: var(--secondary);
   max-width: 530px;
   min-height: 240px;
   display: grid;
   grid-template-columns: 1fr;
 }
-.background-pink {
+.introduction-and-conclussion__background-pink {
   background: var(--softPink);
   max-width: 1020px;
   min-height: 250px;
@@ -20,43 +20,39 @@
   grid-template-areas: "img-pink container-pink";
   align-items: center;
 }
-.heading {
+.introduction-and-conclussion__text-box > h3 {
   font-size: 36px;
   line-height: 40px;
   margin: 10px 10px 0px 0px;
 }
-.heading-title-green {
+.introduction-and-conclussion__text-box-title-green {
   padding-top: 26px;
 }
-.heading-title-pink {
+.introduction-and-conclussion__text-box-title-pink {
   padding-top: 36px;
 }
-.paragraph-introductions {
+.introduction-and-conclussion__text-box > p {
   font-size: 14px;
   line-height: 30px;
   text-align: left;
   margin-top: 0px;
   margin-bottom: 5px;
 }
-.img-pink {
+.introduction-and-conclussion__img {
   grid-area: "img-pink";
   height: 140px;
   max-width: 340px;
   margin-left: 80px;
   margin-right: 30px;
 }
-.img {
-  border-bottom: 10px solid var(--secondary);
-  width: 100%;
-}
-.container-green {
+.introduction-and-conclussion__text-box-green {
   margin-left: 40px;
   margin-right: 40px;
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
 }
-.container-pink {
+.introduction-and-conclussion__text-box-pink {
   grid-area: "container-pink";
   margin-right: 30px;
   padding-right: 20px;
@@ -64,40 +60,40 @@
   flex-direction: column;
   padding-bottom: 20px;
 }
-.div-button {
+.introduction-and-conclussion__text-box-button {
   float: right;
   padding-top: 10px;
 }
-.div-button--green {
+.introduction-and-conclussion__text-box-button-green {
   padding-top: 30px;
 }
 @media (max-width: 860px) {
-  .img-pink {
+  .introduction-and-conclussion__img {
     display: none;
   }
-  .background-pink {
+  .introduction-and-conclussion__background-pink {
     max-width: 530px;
     min-height: 240px;
     display: grid;
     grid-template-columns: 1fr;
   }
-  .heading-title-pink {
+  .introduction-and-conclussion__text-box-title-pink {
     padding-top: 26px;
   }
-  .container-pink {
+  .introduction-and-conclussion__text-box-pink {
     margin-left: 40px;
     margin-right: 40px;
   }
 }
 @media (max-width: 400px) {
-  .heading-title-green {
+  .introduction-and-conclussion__text-box-title-green {
     padding-top: 20px;
   }
-  .heading {
+  .introduction-and-conclussion__text-box > h3 {
     line-height: 30px;
     font-size: 30px;
   }
-  .background {
+  .introduction-and-conclussion {
     float: center;
   }
 }

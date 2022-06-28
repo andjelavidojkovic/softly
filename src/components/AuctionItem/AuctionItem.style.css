@@ -1,5 +1,5 @@
-.div-auction-item {
-  margin: 30px;
+.auction-item {
+  margin: 20px;
   padding: 10px;
   color: var(--secondary);
   font-family: var(--font);
@@ -7,12 +7,12 @@
   width: fit-content;
   background-color: var(--primary);
 }
-.div-company-time-button {
+.auction-item > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.paragraph-company-time {
+.auction-item__text {
   margin: 0;
   font-size: 14px;
   line-height: 30px;

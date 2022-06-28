@@ -2,36 +2,42 @@ import React from "react";
 import "./Footer.style.css";
 
 const Footer = () => {
+  const socialMedias = [
+    "Facebook",
+    "LinkedIn",
+    "Twitter",
+    "Instagram",
+    "Youtube",
+  ];
+  const legalRights = ["Privacy Policy", "Terms of Use", "Cookies"];
   return (
-    <footer>
-      <div className="div-blocks1">
-        <p className="footer--headnig"> Softly Pty Ltd.</p>
-        <p className="footer--paragraph">ABN: 88 888 888 888</p>
+    <footer className="footer">
+      <div className="footer__contact">
+        <h3> Softly Pty Ltd.</h3>
+        <p>ABN: 88 888 888 888</p>
 
-        <p className="footer--headnig"> Contact Us </p>
-        <ul>
+        <h3> Contact Us </h3>
+        <ul className="footer__list">
           <li>Mon - Fri 9:00am - 5:00pm</li>
           <li>+88 888 888 888</li>
         </ul>
       </div>
 
-      <div className="div-blocks2">
-        <p className="footer--headnig"> Follow Us </p>
-        <ul>
-          <li>Facebook</li>
-          <li>LinkedIn</li>
-          <li>Twitter</li>
-          <li>Instagram</li>
-          <li>Youtube</li>
+      <div className="footer__follow">
+        <h3> Follow Us </h3>
+        <ul className="footer__list">
+          {socialMedias.map((media) => (
+            <li>{media}</li>
+          ))}
         </ul>
       </div>
 
-      <div className="div-blocks3">
-        <p className="footer--headnig"> Legal </p>
-        <ul>
-          <li>Privacy Policy</li>
-          <li>Terms of Use</li>
-          <li>Cookies</li>
+      <div className="footer__legal">
+        <h3> Legal </h3>
+        <ul className="footer__list">
+          {legalRights.map((rights) => (
+            <li>{rights}</li>
+          ))}
         </ul>
       </div>
     </footer>

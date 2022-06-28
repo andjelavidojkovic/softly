@@ -3,22 +3,34 @@ import "./IntroductionAndConclusion.style.css";
 import Button from "../Button";
 import Image from "../ImageComponents/Image";
 
-const IntroductionAndConclusion = ({ title, buttonName, text, img }) => {
+const IntroductionAndConclusion = ({ title, buttonName, text, img, alt }) => {
   const classColor = img ? "pink" : "green";
 
   return (
-    <div className={`background background-${classColor}`}>
+    <div
+      className={`introduction-and-conclussion introduction-and-conclussion__background-${classColor}`}
+    >
       {img ? (
-        <div className={`img-${classColor}`}>
-          <Image url={img} />
+        <div className={"introduction-and-conclussion__img"}>
+          <Image url={img} alt={alt} />
         </div>
       ) : null}
 
-      <div className={`container-${classColor}`}>
-        <h3 className={`heading heading-title-${classColor}`}>{title}</h3>
-        <p className="paragraph-introductions">
+      <div
+        className={`introduction-and-conclussion__text-box
+      introduction-and-conclussion__text-box-${classColor}`}
+      >
+        <h3
+          className={`introduction-and-conclussion__text-box-title-${classColor}`}
+        >
+          {title}
+        </h3>
+        <p>
           {text}
-          <div className={`div-button div-button--${classColor}`}>
+          <div
+            className={`introduction-and-conclussion__text-box-button 
+            introduction-and-conclussion__text-box-button-${classColor}`}
+          >
             <Button styleForButton="primary">{buttonName}</Button>
           </div>
         </p>

@@ -5,11 +5,11 @@ import Img from "../Img";
 
 const AuctionItem = ({ children, url }) => {
   return (
-    <div className="div-auction-item">
-      <Img url={url}></Img>
+    <div className="auction-item">
+      <Img url={url} alt="Auction Item"></Img>
       <p> Lorem Ipsum Dolor </p>
-      <div className="div-company-time-button">
-        <p className="paragraph-company-time">
+      <div>
+        <p className="auction-item__text">
           Company <br />
           Time
         </p>

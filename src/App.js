@@ -6,46 +6,47 @@ import Footer from "./components/Footer";
 import IntroductionAndConclusion from "./components/IntroductionAndConclusion";
 import "./index.css";
 import AuctionItem from "./components/AuctionItem";
+import FatArrow from "./components/ImageComponents/FatArrow.icon";
 
 const App = () => {
   return (
     <div>
       <IntroductionAndConclusion
-        title={"Title"}
-        buttonName={"CTA TEXT"}
-        text={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-        }
+        title="Title"
+        buttonName="CTA TEXT"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       ></IntroductionAndConclusion>
       <IntroductionAndConclusion
-        title={"Sell with Softly"}
-        buttonName={"START"}
-        text={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-        }
-        img={"./images/Rectangle14.jpg"}
+        title="Sell with Softly"
+        buttonName="START"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        img="./images/Rectangle14.jpg"
+        alt="lorem ipsum dolor"
       ></IntroductionAndConclusion>
 
-      <AuctionItem url={"./images/Rectangle6.jpg"}> BID </AuctionItem>
+      <AuctionItem url="./images/Rectangle6.jpg"> BID </AuctionItem>
       <br />
-      <AuctionItem url={"./images/Rectangle14.jpg"}> BOOK </AuctionItem>
+      <AuctionItem url="./images/Rectangle14.jpg"> BOOK </AuctionItem>
 
       <div style={{ margin: "5px" }}>
-        <Button styleForButton={"seeMore"} icon={"./images/Polygon1.svg"}>
-          See More
+        <Button styleForButton="seeMore" buttonName="See More">
+          <FatArrow orientation="right" />
         </Button>
       </div>
+
       <div style={{ margin: "5px" }}>
-        <Button styleForButton={"loadMore"} icon={"./images/Polygon1.svg"}>
-          Load More
+        <Button styleForButton="loadMore" buttonName="Load More">
+          <FatArrow orientation="bottom" />
         </Button>
       </div>
+
       <div style={{ margin: "5px" }}>
-        <Button styleForButton={"sortBy"} icon={"./images/Polygon1.svg"}>
-          Sort By
+        <Button styleForButton="sortBy" buttonName="Sort By">
+          <FatArrow orientation="bottom" />
         </Button>
       </div>
-      <Footer></Footer>
+
+      <Footer />
     </div>
   );
 };

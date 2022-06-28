@@ -1,10 +1,9 @@
 import React from "react";
 import "./Button.style.css";
-import Polygon from "../ImageComponents/FatArrow.icon";
+// import FatArrow from "../ImageComponents/FatArrow.icon";
 
-const Button = ({ children, styleForButton, icon }) => {
+const Button = ({ children, styleForButton, buttonName }) => {
   let buttonStyle = "";
-  let orientation = "";
 
   switch (styleForButton) {
     case "primary":
@@ -17,20 +16,17 @@ const Button = ({ children, styleForButton, icon }) => {
       break;
 
     case "seeMore":
-      buttonStyle = "seeMore";
-      orientation = "right";
+      buttonStyle = "see-more";
 
       break;
 
     case "loadMore":
-      buttonStyle = "loadMore";
-      orientation = "bottom";
+      buttonStyle = "load-more";
 
       break;
 
     case "sortBy":
-      buttonStyle = "sortBy";
-      orientation = "bottom";
+      buttonStyle = "sort-by";
 
       break;
 
@@ -39,14 +35,16 @@ const Button = ({ children, styleForButton, icon }) => {
       break;
   }
 
-  const classes = `button button--${buttonStyle}`;
+  const classes = `button button__${buttonStyle}`;
 
   return (
     <button className={classes}>
+      {buttonName}
       {children}
-      {icon ? <Polygon orientation={orientation} url={icon} /> : null}
     </button>
   );
 };
 
 export default Button;
+
+// {icon ? <FatArrow orientation={orientation} url={icon} /> : null}
