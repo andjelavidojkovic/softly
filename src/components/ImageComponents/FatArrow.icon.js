@@ -3,7 +3,7 @@ import "./FatArrow.style.css";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const FatArrow = ({ orientation }) => {
-  const iconOrientation = `icon icon__${orientation}`;
+  const iconOrientation = `icon icon--${orientation}`;
 
   return (
     <svg

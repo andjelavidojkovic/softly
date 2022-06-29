@@ -35,7 +35,7 @@ const Button = ({ children, styleForButton, buttonName }) => {
       break;
   }
 
-  const classes = `button button__${buttonStyle}`;
+  const classes = `button button--${buttonStyle}`;
 
   return (
     <button className={classes}>
