@@ -1,5 +1,5 @@
-.img {
+.image {
   border-bottom: 10px solid #00261c;
-  height: 140px;
-  width: 340px;
+  height: inherit;
+  max-width: inherit;
 }

@@ -17,3 +17,19 @@
   font-size: 14px;
   line-height: 30px;
 }
+.auction-item__img {
+  height: 350px;
+  max-width: 660px;
+}
+@media (max-width: 750px) {
+  .auction-item__img {
+    height: fit-content;
+    max-width: fit-content;
+  }
+}
+@media (max-width: 550px) {
+  .auction-item__img {
+    height: fit-content;
+    max-width: 284px;
+  }
+}

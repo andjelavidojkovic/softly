@@ -1,8 +1,7 @@
 import React from "react";
 import "./Button.style.css";
-// import FatArrow from "../ImageComponents/FatArrow.icon";
 
-const Button = ({ children, styleForButton, buttonName }) => {
+const Button = ({ children, styleForButton }) => {
   let buttonStyle = "";
 
   switch (styleForButton) {
@@ -30,6 +29,16 @@ const Button = ({ children, styleForButton, buttonName }) => {
 
       break;
 
+    case "login":
+      buttonStyle = "login";
+
+      break;
+
+    case "menuBurger":
+      buttonStyle = "menu-burger";
+
+      break;
+
     default:
       buttonStyle = "regular";
       break;
@@ -37,14 +46,7 @@ const Button = ({ children, styleForButton, buttonName }) => {
 
   const classes = `button button--${buttonStyle}`;
 
-  return (
-    <button className={classes}>
-      {buttonName}
-      {children}
-    </button>
-  );
+  return <button className={classes}>{children}</button>;
 };
 
 export default Button;
-
-// {icon ? <FatArrow orientation={orientation} url={icon} /> : null}

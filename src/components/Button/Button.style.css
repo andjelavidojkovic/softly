@@ -6,7 +6,7 @@
   font-size: 18px;
   border-radius: 4px;
   border-width: thin;
-  background-color: #f2f1e7;
+  background-color: var(--primary);
   font-family: "Orqquidea-Sans_(DEMO)";
   flex-shrink: 1;
 }
@@ -59,4 +59,23 @@
   align-items: center;
   justify-content: space-between;
   padding: 0px 22px 0px 24px;
+}
+.button--login {
+  border: none;
+  border-radius: 0;
+  padding-bottom: 0;
+  color: var(--secondary);
+  border-bottom: 5px solid var(--softPink);
+  width: 60px;
+  height: 40px;
+  font-family: var(--font);
+  padding-right: 0px;
+  text-align: end;
+  /* text-decoration: 5px solid var(--softPink) underline; */
+}
+
+.button--menu-burger {
+  text-align: end;
+  width: 80px;
+  border: none;
 }
