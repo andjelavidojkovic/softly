@@ -3,13 +3,13 @@
   color: var(--secondary);
   display: grid;
   grid-template-columns: 1fr 3fr 2fr;
-  grid-template-areas: "navbar__logo navbar__list navbar__login-btn";
+  grid-template-areas: 'navbar__logo navbar__list navbar__login-btn';
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   border-bottom: 10px solid var(--secondary);
   height: 110px;
-  padding: 0 20px;
+  position: relative;
 }
 .navbar__list {
   padding: 0;
@@ -19,11 +19,11 @@
   justify-content: space-between;
   gap: 10px;
   align-items: center;
-  font-family: "Orqquidea-Sans_(DEMO)";
+  font-family: 'Orqquidea-Sans_(DEMO)';
   font-size: 18px;
   font-weight: 800;
   line-height: 22px;
-  grid-area: "navbar__list";
+  grid-area: 'navbar__list';
 }
 .navbar a {
   color: inherit;
@@ -42,30 +42,33 @@
 }
 .navbar__logo {
   padding-left: 16px;
-  grid-area: "navbar__logo";
+  grid-area: 'navbar__logo';
 }
 .navbar__login-btn {
   justify-self: end;
   display: flex;
   align-items: center;
-  grid-area: "navbar__login-btn";
+  grid-area: 'navbar__login-btn';
 }
 .navbar__menu-burger {
-  /* justify-self: end; */
   display: none;
-  grid-area: "navbar__menu-burger";
+  grid-area: 'navbar__menu-burger';
 }
 
 @media (max-width: 850px) {
   .navbar {
     grid-template-columns: 3fr 2fr 1f;
-    grid-template-areas: "navbar__logo navbar__login-btn navbar__menu-burger";
+    grid-template-areas: 'navbar__logo navbar__login-btn navbar__menu-burger';
   }
   .navbar__list {
     display: none;
   }
   .navbar__menu-burger {
-    justify-self: end;
     display: inline;
+  }
+}
+@media (max-width: 320px) {
+  .navbar__login-btn {
+    display: none;
   }
 }

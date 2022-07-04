@@ -1,9 +1,25 @@
-import React from "react";
-import "./Navbar.style.css";
-import Logo from "../ImageComponents/Logo.icon";
-import Button from "../Button";
-import MenuBurger from "../ImageComponents/MenuBurger.icon";
-import CustomLink from "../CustomLink/CustomLink.component";
+import React from 'react';
+import './Navbar.style.css';
+import Logo from '../ImageComponents/Logo.icon';
+import Button from '../Button';
+import MenuBurger from '../ImageComponents/MenuBurger.icon';
+import CustomLink from '../CustomLink/CustomLink.component';
+import Dropdown from '../Dropdown/Dropdown.component';
+
+const options = [
+  {
+    to: '/about',
+    value: 'About',
+  },
+  {
+    to: '/auctions',
+    value: 'Auctions',
+  },
+  {
+    to: '/experiences',
+    value: 'Experiences',
+  },
+];
 
 const Navbar = () => {
   return (
@@ -20,9 +36,9 @@ const Navbar = () => {
         <Button styleForButton="login">Login</Button>
       </div>
       <div className="navbar__menu-burger">
-        <Button styleForButton="menuBurger">
+        <Dropdown options={options}>
           <MenuBurger />
-        </Button>
+        </Dropdown>
       </div>
     </nav>
   );

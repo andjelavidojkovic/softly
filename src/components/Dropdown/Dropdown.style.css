@@ -1,9 +1,11 @@
 .dropdown {
-  width: 200px;
   background: var(--primary);
+  position: absolute;
+  right: 0px;
 }
 .dropdown__btn {
-  padding: 15px 20px;
+  /* max-width: 100px; */
+  padding: 0px 20px;
   background: var(--primary);
   display: flex;
   justify-content: flex-end;
@@ -20,6 +22,7 @@
   list-style: none;
   text-align: center;
   color: var(--secondary);
+  /* min-width: 200px; */
 }
 
 .dropdown__content a {
