@@ -1,24 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Dropdown.style.css';
 import CustomLink from '../CustomLink/CustomLink.component';
 import '../Navbar/Navbar.style.css';
 
 const Dropdown = ({ options, children }) => {
   const [isActive, setIsActive] = useState(false);
-  const ref = useRef();
 
   useEffect(() => {
-    document.body.addEventListener(
-      'click',
-      (event) => {
-        if (ref.current.contains(event.target)) {
-          return;
-        }
-        setIsActive(false);
-      },
-      { capture: true },
-    );
-  }, []);
+    if (!isActive) return;
+
+    const onClick = () => {
+      setIsActive(false);
+    };
+
+    document.body.addEventListener('click', onClick);
+
+    return () => {
+      document.body.removeEventListener('click', onClick);
+    };
+  }, [isActive]);
 
   const renderedOptions = options.map((option) => {
     return (
@@ -29,8 +29,14 @@ const Dropdown = ({ options, children }) => {
   });
 
   return (
-    <div ref={ref} className="dropdown">
-      <div className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
+    <div className="dropdown">
+      <div
+        className="dropdown__btn"
+        onClick={(event) => {
+          event.stopPropagation();
+          setIsActive(!isActive);
+        }}
+      >
         {children}
       </div>
       {isActive && (

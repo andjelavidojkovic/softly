@@ -2,5 +2,9 @@
   --primary: #f2f1e7;
   --secondary: #00261c;
   --softPink: #c9b1a9;
-  --font: "Bodoni 72";
+  --font: 'Bodoni 72';
+}
+
+body {
+  margin: 0;
 }

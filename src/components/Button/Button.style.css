@@ -7,7 +7,7 @@
   border-radius: 4px;
   border-width: thin;
   background-color: var(--primary);
-  font-family: "Orqquidea-Sans_(DEMO)";
+  font-family: 'Orqquidea-Sans_(DEMO)';
   flex-shrink: 1;
 }
 .button--red {
@@ -25,7 +25,7 @@
 .button--see-more {
   color: #00261c;
   border-width: 0px;
-  font-family: "Bodoni 72";
+  font-family: 'Bodoni 72';
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
@@ -39,7 +39,7 @@
   height: 70px;
   color: #00261c;
   border-width: 0px;
-  font-family: "Bodoni 72";
+  font-family: 'Bodoni 72';
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
@@ -51,7 +51,7 @@
 .button--sort-by {
   color: #00261c;
   border-width: 0px;
-  font-family: "Bodoni 72";
+  font-family: 'Bodoni 72';
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
@@ -71,7 +71,6 @@
   font-family: var(--font);
   padding-right: 0px;
   text-align: end;
-  /* text-decoration: 5px solid var(--softPink) underline; */
 }
 
 .button--menu-burger {

@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Navbar.style.css';
 import Logo from '../ImageComponents/Logo.icon';
-import Button from '../Button';
+// import Button from '../Button';
 import MenuBurger from '../ImageComponents/MenuBurger.icon';
 import CustomLink from '../CustomLink/CustomLink.component';
 import Dropdown from '../Dropdown/Dropdown.component';
@@ -32,8 +33,8 @@ const Navbar = () => {
         <CustomLink to="/auctions">Auctions</CustomLink>
         <CustomLink to="/experiences">Experiences</CustomLink>
       </ul>
-      <div className="navbar__login-btn">
-        <Button styleForButton="login">Login</Button>
+      <div className="navbar__link--login">
+        <NavLink to="/auctions">Login</NavLink>
       </div>
       <div className="navbar__menu-burger">
         <Dropdown options={options}>
