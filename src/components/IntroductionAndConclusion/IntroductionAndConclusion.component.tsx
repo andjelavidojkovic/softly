@@ -1,17 +1,23 @@
-import React from "react";
-import "./IntroductionAndConclusion.style.css";
-import Button from "../Button";
-import Image from "../ImageComponents/Image";
+import React from 'react';
+import './IntroductionAndConclusion.style.css';
+import Button from '../Button';
+import Image from '../ImageComponents/Image';
 
-const IntroductionAndConclusion = ({ title, buttonName, text, img, alt }) => {
-  const classColor = img ? "pink" : "green";
+const IntroductionAndConclusion: React.FC<any> = ({
+  title,
+  buttonName,
+  text,
+  img,
+  alt,
+}) => {
+  const classColor = img ? 'pink' : 'green';
 
   return (
     <div
       className={`introduction-and-conclussion introduction-and-conclussion__background-${classColor}`}
     >
       {img ? (
-        <div className={"introduction-and-conclussion__img"}>
+        <div className={'introduction-and-conclussion__img'}>
           <Image url={img} alt={alt} />
         </div>
       ) : null}
@@ -31,7 +37,7 @@ const IntroductionAndConclusion = ({ title, buttonName, text, img, alt }) => {
             className={`introduction-and-conclussion__text-box-button 
             introduction-and-conclussion__text-box-button-${classColor}`}
           >
-            <Button styleForButton="primary">{buttonName}</Button>
+            <Button variant="primary">{buttonName}</Button>
           </div>
         </p>
       </div>

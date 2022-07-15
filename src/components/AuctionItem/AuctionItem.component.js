@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "../Button";
-import "./AuctionItem.style.css";
-import Image from "../ImageComponents/Image";
+import React from 'react';
+import Button from '../Button';
+import './AuctionItem.style.css';
+import Image from '../ImageComponents/Image';
 
 const AuctionItem = ({ children, url }) => {
   return (
@@ -15,7 +15,9 @@ const AuctionItem = ({ children, url }) => {
           Company <br />
           Time
         </p>
-        <Button>{children}</Button>
+        <Button variant="primary" styleType="outline">
+          BID
+        </Button>
       </div>
     </div>
   );

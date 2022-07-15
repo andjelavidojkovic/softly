@@ -26,15 +26,15 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
-        <Logo />
+        <Logo height="64" width="90" />
       </div>
       <ul className="navbar__list">
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/auctions">Auctions</CustomLink>
-        <CustomLink to="/experiences">Experiences</CustomLink>
+        <CustomLink to="/sellingform">Experiences</CustomLink>
       </ul>
       <div className="navbar__link--login">
-        <NavLink to="/auctions">Login</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </div>
       <div className="navbar__menu-burger">
         <Dropdown options={options}>

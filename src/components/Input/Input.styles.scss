@@ -1,0 +1,38 @@
+@use '../../scss/settings' as *;
+.input {
+  @include font(18px, 22px);
+  font-family: Bodoni;
+}
+.input__name {
+  @include font(18px, 22px);
+  margin: 5px;
+  padding-left: 16px;
+  font-weight: 300;
+}
+
+.input__box {
+  @include flex(row, space-between, center);
+  @include border-top-radius(4px);
+  @include border-bottom-radius(4px);
+
+  min-height: 44px;
+  max-width: 304px;
+  margin: 0 0 5px 5px;
+  border: 1px solid var(--secondary);
+  background-color: white;
+
+  &--row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--content {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-left: 16px;
+  }
+
+  &--error {
+    border-color: red;
+  }
+}

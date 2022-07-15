@@ -1,11 +1,11 @@
-import React from "react";
-import Button from "./components/Button";
-import FatArrow from "./components/ImageComponents/FatArrow.icon";
+import React from 'react';
+// import Button from './components/Button';
+// import FatArrow from './components/ImageComponents/FatArrow.icon';
 
 const Experiences = () => {
   return (
     <div>
-      <div style={{ margin: "5px" }}>
+      {/* <div style={{ margin: "5px" }}>
         <Button styleForButton="seeMore">
           See More <FatArrow orientation="right" />
         </Button>
@@ -21,7 +21,7 @@ const Experiences = () => {
         <Button styleForButton="sortBy">
           Sort By <FatArrow orientation="bottom" />
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

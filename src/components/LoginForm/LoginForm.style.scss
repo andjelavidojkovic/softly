@@ -1,0 +1,48 @@
+@use '../../scss/settings' as *;
+
+.login-form {
+  @include flex(column, center, center);
+  margin-top: 30px;
+  color: var(--secondary);
+
+  &__checkbox {
+    @include flex(row, space-between, baseline);
+    align-self: start;
+    margin: 10px 0;
+    width: 100%;
+    > a {
+      @include font(14px, 18px);
+
+      text-decoration: none;
+      color: #00261c;
+      opacity: 50%;
+    }
+  }
+  &__btn {
+    align-self: end;
+    margin: 10px 0;
+  }
+
+  &__sign-up {
+    @include flex(row, center, center);
+    > p {
+      opacity: 50%;
+    }
+    > a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .login-form {
+    &__checkbox {
+      > a {
+        @include font(12px, 16px);
+      }
+    }
+  }
+}

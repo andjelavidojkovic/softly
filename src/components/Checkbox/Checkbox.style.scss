@@ -1,0 +1,35 @@
+@use '../../scss/settings' as *;
+
+.checkbox {
+  @include flex(row, center, center);
+  @include font(14px, 18px);
+
+  font-family: Bodoni72;
+  margin: 6px;
+  cursor: pointer;
+  user-select: none;
+
+  &__box {
+    @include size(20px);
+
+    border: 1px solid black;
+    margin-right: 8px;
+    pointer-events: none;
+
+    svg {
+      display: none;
+    }
+
+    &--active {
+      svg {
+        display: unset;
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .checkbox {
+    @include font(12px, 16px);
+  }
+}
