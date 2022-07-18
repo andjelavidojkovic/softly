@@ -1,6 +1,6 @@
 import React from 'react';
 // import Button from './components/Button';
-import Checkbox from './components/Checkbox';
+// import Checkbox from './components/Checkbox';
 // import FatArrow from './components/ImageComponents/FatArrow.icon';
 
 const About = () => {
@@ -38,7 +38,7 @@ const About = () => {
       >
         Load More
       </Button> */}
-      <Checkbox>Remember me</Checkbox>
+      <div> About</div>
     </div>
   );
 };

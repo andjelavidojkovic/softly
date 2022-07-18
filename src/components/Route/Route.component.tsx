@@ -5,6 +5,7 @@ import Experiences from '../../Experiences';
 import Home from '../../Home';
 import Login from '../../Login';
 import SellingForm from '../../SellingForm';
+import SignUp from '../../SignUp.page';
 
 const RouteComponent = () => {
   return (
@@ -16,6 +17,7 @@ const RouteComponent = () => {
         <Route path="/experiences" element={<Experiences />} />
         <Route path="/sellingform" element={<SellingForm />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </div>
   );
