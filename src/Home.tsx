@@ -1,5 +1,5 @@
-import React from "react";
-import IntroductionAndConclusion from "./components/IntroductionAndConclusion";
+import React from 'react';
+import IntroductionAndConclusion from './components/IntroductionAndConclusion';
 
 const Home = () => {
   return (

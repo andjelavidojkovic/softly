@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Dropdown.style.css';
 import CustomLink from '../CustomLink/CustomLink.component';
 import '../Navbar/Navbar.style.css';
+import { useNavigate } from 'react-router-dom';
 
 const Dropdown = ({ options, children }) => {
   const [isActive, setIsActive] = useState(false);
@@ -27,7 +28,13 @@ const Dropdown = ({ options, children }) => {
       </div>
     );
   });
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate('/login');
+    }
+  });
   return (
     <div className="dropdown">
       <div
@@ -42,6 +49,14 @@ const Dropdown = ({ options, children }) => {
       {isActive && (
         <div className="dropdown__content">
           <div> {renderedOptions} </div>
+          <div
+            onClick={() => {
+              localStorage.removeItem('token');
+            }}
+          >
+            {' '}
+            Logout{' '}
+          </div>
         </div>
       )}
     </div>

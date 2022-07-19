@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Input from '../Input';
-import Checkbox from '../Checkbox';
+// import Checkbox from '../Checkbox';
 import Button from '../Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.style.scss';
 import axios from 'axios';
 
@@ -18,31 +18,34 @@ const LoginForm = ({ Log }: { Log: any }) => {
   //   Log(details);
   // };
 
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log('form submitted');
+    console.log({ email, password });
     axios
-      .post('http://localhost:3000/api/users/signin', {
+      .post('https://reqres.in/api/login', {
         email: email,
         password: password,
       })
       .then((response) => {
+        console.log(response);
         console.log(response.data);
-        alert('successfully loggedIn');
+        // alert('successfully loggedIn');
+        localStorage.setItem('token', response.data.token);
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);
-        console.log(err.response);
-        alert(err.message);
+        console.log(err.message);
       });
   };
 
   return (
     <div>
-      {' '}
       <form className="login-form" onSubmit={handleSubmit}>
         <Input
           type="email"
