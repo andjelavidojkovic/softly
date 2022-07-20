@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Input from '../Input';
-// import Checkbox from '../Checkbox';
+import Checkbox from '../Checkbox';
 import Button from '../Button';
 import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.style.scss';
-import axios from 'axios';
+import axios from '../../axios';
 
 const LoginForm = ({ Log }: { Log: any }) => {
   // const [details, setDetails] = useState({
@@ -27,7 +27,7 @@ const LoginForm = ({ Log }: { Log: any }) => {
     console.log('form submitted');
     console.log({ email, password });
     axios
-      .post('https://reqres.in/api/login', {
+      .post('/users/signin', {
         email: email,
         password: password,
       })
@@ -60,12 +60,12 @@ const LoginForm = ({ Log }: { Log: any }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="login-form__checkbox">
-          {/* <Checkbox
+          <Checkbox
             title="Remember me"
-            onChange={(e) =>
-              setDetails({ ...details, register: e.target.checked })
-            }
-          ></Checkbox> */}
+            // onChange={(e) =>
+            //   setDetails({ ...details, register: e.target.checked })
+            // }
+          ></Checkbox>
           <Link to="/signup">Forgot Password?</Link>
         </div>
         <div className="login-form__btn">

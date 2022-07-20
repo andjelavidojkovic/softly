@@ -7,7 +7,6 @@
   font-family: Bodoni72;
   margin: 6px;
   cursor: pointer;
-  user-select: none;
 
   &__box {
     @include size(20px);
@@ -26,6 +25,14 @@
       }
     }
   }
+}
+
+.sign-up-form {
+  @include font(8px, 14px);
+}
+
+.bold {
+  font-weight: bold;
 }
 
 @media (max-width: 530px) {

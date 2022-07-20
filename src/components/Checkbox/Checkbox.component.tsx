@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import './Checkbox.style.scss';
 import CheckIcon from '../../icons/Check.icon';
 import classNames from 'classnames';
 
 type CheckboxProps = {
-  title?: string;
+  className?: string;
+  label?: ReactNode;
 } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >;
 
 const Checkbox: React.FC<CheckboxProps> = (props) => {
-  const { title, onChange, ...rest } = props;
+  const { label, className, onChange, ...rest } = props;
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -32,7 +33,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
       >
         <CheckIcon />
       </div>
-      <span>{title}</span>
+      <span className={className}>{label}</span>
     </label>
   );
 };

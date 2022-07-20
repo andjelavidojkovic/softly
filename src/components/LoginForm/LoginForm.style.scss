@@ -6,7 +6,7 @@
   color: var(--secondary);
 
   &__checkbox {
-    @include flex(row, space-between, baseline);
+    @include flex(row, space-between, center);
     align-self: start;
     margin: 10px 0;
     width: 100%;
