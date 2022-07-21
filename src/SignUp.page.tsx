@@ -5,11 +5,7 @@ import Checkbox from './components/Checkbox';
 import Logo from './components/ImageComponents/Logo.icon';
 import Input from './components/Input';
 import './SignUp.style.scss';
-// import axios from './axios';
 import axios from './axios';
-
-// const createPageCheckbox =
-//   'I hereby confirm that I have read and agree to the Terms&Conditions and Privacy Policy of Softly.';
 
 const USER_REGEX = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
 const PWD_REGEX = /^(?=.*[a-z]).{6,24}$/;

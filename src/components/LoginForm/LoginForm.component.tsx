@@ -1,47 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
 import Button from '../Button';
 import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.style.scss';
 import axios from '../../axios';
+import utils from '../../utils';
+import { AxiosError } from 'axios';
 
-const LoginForm = ({ Log }: { Log: any }) => {
-  // const [details, setDetails] = useState({
-  //   email: '',
-  //   password: '',
-  //   register: false,
-  // });
+// function ValidateEmail(email: string) {
+//   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+//     return true;
+//   } else {
+//     alert('you have entered an invalid email address');
+//     return false;
+//   }
+// }
 
-  // const submitHandler = (e: any) => {
-  //   e.preventDefault();
-  //   Log(details);
-  // };
+function validateLogin(errorMsg: string) {
+  if (errorMsg === "User with that email address doesn't exist!") return true;
+  else return false;
+}
 
+const LoginForm = () => {
   const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [errEmail, setErrEmail] = useState(false);
+  const [errPwd, setErrPwd] = useState(false);
+
+  useEffect(() => {
+    setErrMsg('');
+    setErrEmail(false);
+    setErrPwd(false);
+  }, [email, pwd]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log('form submitted');
-    console.log({ email, password });
-    axios
-      .post('/users/signin', {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-        console.log(response.data);
-        // alert('successfully loggedIn');
-        localStorage.setItem('token', response.data.token);
-        navigate('/');
-      })
-      .catch((err) => {
-        console.log(err);
-        console.log(err.message);
-      });
+    console.log({ email, pwd });
+    try {
+      const response = await axios.post(
+        '/users/signin',
+        JSON.stringify({ email, password: pwd }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
+      console.log(response);
+      const accessToken = response.data.accessToken;
+      console.log(accessToken);
+      localStorage.setItem('token', accessToken);
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+      const er = validateLogin(utils.getStringError(error as AxiosError));
+      setErrEmail(er);
+      setErrPwd(!er);
+      setErrMsg(utils.getStringError(error as AxiosError));
+    }
   };
 
   return (
@@ -50,22 +68,33 @@ const LoginForm = ({ Log }: { Log: any }) => {
         <Input
           type="email"
           name="Email"
-          // onChange={(e) => setDetails({ ...details, email: e.target.value })}
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required={true}
+          error={errEmail ? true : false}
         />
+        <p
+          className={
+            errMsg === "User with that email address doesn't exist!"
+              ? 'errmsg'
+              : 'nothing'
+          }
+        >
+          {errMsg}
+        </p>
         <Input
           type="password"
           name="Password"
-          // onChange={(e) => setDetails({ ...details, password: e.target.value })}
-          onChange={(e) => setPassword(e.target.value)}
+          value={pwd}
+          onChange={(e) => setPwd(e.target.value)}
+          required={true}
+          error={errPwd ? true : false}
         />
+        <p className={errMsg === 'Incorrect password!' ? 'errmsg' : 'nothing'}>
+          {errMsg}
+        </p>
         <div className="login-form__checkbox">
-          <Checkbox
-            title="Remember me"
-            // onChange={(e) =>
-            //   setDetails({ ...details, register: e.target.checked })
-            // }
-          ></Checkbox>
+          <Checkbox label="Remember me"></Checkbox>
           <Link to="/signup">Forgot Password?</Link>
         </div>
         <div className="login-form__btn">

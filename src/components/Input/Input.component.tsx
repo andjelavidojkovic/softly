@@ -5,6 +5,8 @@ import './Input.styles.scss';
 type InputProps = {
   type?: string;
   value?: string;
+  error?: boolean;
+  required?: boolean;
   className?: string;
   name?: string;
   placeholder?: string;
@@ -21,9 +23,11 @@ const Input: React.FC<InputProps> = (props) => {
     value,
     type,
     className,
+    error,
     name,
     placeholder = 'Contents',
     icon,
+    required,
     iconPosition,
     errorMessage,
     ...rest
@@ -31,7 +35,7 @@ const Input: React.FC<InputProps> = (props) => {
 
   const classes = classNames('input__box', className, {
     'input__box--row-reverse': iconPosition === 'right',
-    'input__box--error': false,
+    'input__box--error': error,
   });
 
   return (
@@ -43,6 +47,7 @@ const Input: React.FC<InputProps> = (props) => {
           {...rest}
           type={type}
           value={value}
+          required={required}
           placeholder={placeholder}
           className="input input__box--content"
         />

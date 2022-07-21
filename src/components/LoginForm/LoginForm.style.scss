@@ -46,3 +46,19 @@
     }
   }
 }
+
+.nothing {
+  display: none;
+}
+
+.errmsg {
+  background-color: firebrick;
+  color: white;
+  font-size: 12px;
+  border-radius: 8px;
+  width: 80%;
+  text-align: center;
+  padding: 6px;
+  position: relative;
+  top: -14px;
+}
