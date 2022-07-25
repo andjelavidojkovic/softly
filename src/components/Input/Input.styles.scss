@@ -16,8 +16,14 @@
     padding: 4px;
     display: none;
   }
+  &__icon {
+    // display: none;
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
 }
-.input__name {
+.input__label {
   @include font(18px, 22px);
   margin: 5px;
   padding-left: 14px;

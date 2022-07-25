@@ -6,37 +6,33 @@ import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.style.scss';
 import axios from '../../axios';
 import utils from '../../utils';
-// import { AxiosError } from 'axios';
+import ErrorIcon from '../../icons/Error.icon';
+
+type ErrMsg = {
+  email?: string;
+  password?: string;
+};
 
 const Loginform = () => {
-  const initialValues = { email: '', password: '' };
-  const [formValues, setFormValues] = useState(initialValues);
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [formErrors, setFormErrors] = useState({ email: '', password: '' });
+  // const [isSubmit, setIsSubmit] = useState(false);
 
   const navigate = useNavigate();
 
-  //   const [email, setEmail] = useState('');
-  //   const [pwd, setPwd] = useState('');
-  //   const [errMsg, setErrMsg] = useState('');
-  //   const [errEmail, setErrEmail] = useState(false);
-  //   const [errPwd, setErrPwd] = useState(false);
-  //   const [blankEmail, setBlankEmail] = useState('');
-  //   const [blankPwd, setBlankPwd] = useState('');
-
-  //   useEffect(() => {
-  //     setErrMsg('');
-  //     setErrEmail(false);
-  //     setErrPwd(false);
-  //   }, [email, pwd]);
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // console.log({ email, pwd });
+    const err: ErrMsg = validate({ email, pwd });
+    setFormErrors({ email: err.email, password: err.password });
+    // setIsSubmit(true);
+    console.log({ email, pwd });
     try {
       const response = await axios.post(
         '/users/signin',
         JSON.stringify({
-          email: formValues.email,
-          password: formValues.password,
+          email: email,
+          password: pwd,
         }),
         {
           headers: { 'Content-Type': 'application/json' },
@@ -52,10 +48,30 @@ const Loginform = () => {
     }
   };
 
-  const handleChange = (e: any) => {
-    console.log(e.target);
-    const { name, value } = e.target;
-    // setFormValues({ ...formValues, name: value });
+  useEffect(() => {
+    setFormErrors({ email: '', password: formErrors.password });
+  }, [email]);
+
+  useEffect(() => {
+    setFormErrors({ email: formErrors.email, password: '' });
+  }, [pwd]);
+
+  const validate = (values: any) => {
+    const errors: ErrMsg = {};
+    // eslint-disable-next-line no-useless-escape
+    const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!values.email) {
+      errors.email = 'Email is required!';
+    } else if (!regexEmail.test(values.email)) {
+      errors.email = 'This is not a valid email format';
+    }
+    if (!values.pwd) {
+      errors.password = 'Password is required!';
+    } else if (values.pwd.length < 4) {
+      errors.password = 'Password must be more that 4 characters';
+    }
+    console.log(formErrors);
+    return errors;
   };
 
   return (
@@ -63,16 +79,33 @@ const Loginform = () => {
       <form className="login-form" onSubmit={handleSubmit}>
         <Input
           type="text"
-          name="Email"
-          value={formValues.email}
-          onChange={handleChange}
+          label="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          error={formErrors.email ? true : false}
         />
+        {formErrors.email ? (
+          <span className="login-form__err-msg">
+            <ErrorIcon height="24" width="24" />
+            {formErrors.email}
+          </span>
+        ) : (
+          <span></span>
+        )}
         <Input
           type="password"
-          name="Password"
-          value={formValues.password}
-          onChange={handleChange}
+          label="Password"
+          onChange={(e) => setPwd(e.target.value)}
+          error={formErrors.password ? true : false}
         />
+        {formErrors.password ? (
+          <span className="login-form__err-msg">
+            <ErrorIcon height="24" width="24" />
+            {formErrors.password}
+          </span>
+        ) : (
+          <span></span>
+        )}
+
         <div className="login-form__checkbox">
           <Checkbox label="Remember me"></Checkbox>
           <Link to="/signup">Forgot Password?</Link>

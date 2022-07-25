@@ -6,11 +6,16 @@ import Logo from './components/ImageComponents/Logo.icon';
 import Input from './components/Input';
 import './SignUp.style.scss';
 import axios from './axios';
+import ErrorIcon from './icons/Error.icon';
 
 const USER_REGEX = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
 const PWD_REGEX = /^(?=.*[a-z]).{6,24}$/;
 
-const REGISTER_URL = '/users/signup';
+type ErrMsg = {
+  email?: string;
+  password?: string;
+  repeatPassword?: string;
+};
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -23,6 +28,8 @@ const SignUp = () => {
   const [validMatch, setValidMatch] = useState(false);
 
   const [success, setSuccess] = useState(false);
+
+  const [errors, setErrors] = useState({ email: '', pwd: '', matchPwd: '' });
 
   useEffect(() => {
     const result = USER_REGEX.test(email);
@@ -40,24 +47,38 @@ const SignUp = () => {
     setValidMatch(match);
   }, [pwd, matchPwd]);
 
+  const validation = (props: any) => {
+    let errors: ErrMsg = {};
+
+    if (!props.email) {
+      errors.email = 'Email is required.';
+    } else if (!USER_REGEX.test(props.email)) {
+      errors.email = 'Invalid form of the email.';
+    }
+    if (!props.pwd) {
+      errors.password = 'Password is required.';
+    } else if (!PWD_REGEX.test(props.pwd)) {
+      errors.password = 'Password must contain minimum 6 characters';
+    }
+    if (!props.matchPwd) {
+      errors.repeatPassword = 'Password is required.';
+    } else if (!validMatch) {
+      errors.repeatPassword = 'Password must match the one entered above.';
+    }
+    return errors;
+  };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // axios
-    //   .post('https://reqres.in/api/register', {
-    //     email: email,
-    //     password: pwd,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //     console.log(response.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     console.log(err.message);
-    //   });
+    const err: ErrMsg = validation({ email, pwd, matchPwd });
+    setErrors({
+      email: err.email,
+      pwd: err.password,
+      matchPwd: err.repeatPassword,
+    });
     try {
       const response = await axios.post(
-        REGISTER_URL,
+        '/users/signup',
         JSON.stringify({ email: email, password: pwd }),
         {
           headers: { 'Content-Type': 'application/json' },
@@ -84,20 +105,44 @@ const SignUp = () => {
           <p> CREATE </p>
           <form className="sign-up__form" onSubmit={handleSubmit}>
             <Input
-              type="email"
-              name="Email"
+              value={email}
+              name="email"
+              type="text"
+              label="Email"
               onChange={(e) => setEmail(e.target.value)}
+              error={errors.email ? true : false}
+              icon={errors.pwd ? <ErrorIcon height="24" width="24" /> : false}
+              iconPosition="right"
             />
+            {errors.email && (
+              <p className="sign-up__form__err-msg">{errors.email}</p>
+            )}
             <Input
+              value={pwd}
+              name="password"
               type="password"
-              name="Password"
+              label="Password"
               onChange={(e) => setPwd(e.target.value)}
+              error={errors.pwd ? true : false}
+              icon={errors.pwd ? <ErrorIcon height="24" width="24" /> : false}
+              iconPosition="right"
             />
+            {errors.pwd && (
+              <p className="sign-up__form__err-msg">{errors.pwd}</p>
+            )}
             <Input
+              value={matchPwd}
+              name="repeat-password"
               type="password"
-              name="Repeat Password"
+              label="Repeat Password"
               onChange={(e) => setMatchPwd(e.target.value)}
+              error={errors.matchPwd ? true : false}
+              icon={errors.pwd ? <ErrorIcon height="24" width="24" /> : false}
+              iconPosition="right"
             />
+            {errors.matchPwd && (
+              <p className="sign-up__form__err-msg">{errors.matchPwd}</p>
+            )}
             <div className="sign-up__form__checkbox">
               <Checkbox
                 label={
@@ -116,9 +161,9 @@ const SignUp = () => {
               <Button
                 variant="primary"
                 styleType="outline"
-                disabled={
-                  !validEmail || !validPwd || !validMatch ? true : false
-                }
+                // disabled={
+                //   !validEmail || !validPwd || !validMatch ? true : false
+                // }
               >
                 GO
               </Button>

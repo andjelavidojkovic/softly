@@ -5,6 +5,7 @@ import InfoIcon from '../../icons/Info.icon';
 
 type InputProps = {
   type?: string;
+  label?: string;
   value?: string;
   error?: boolean;
   required?: boolean;
@@ -21,6 +22,7 @@ type InputProps = {
 
 const Input: React.FC<InputProps> = (props) => {
   const {
+    label,
     value,
     type,
     className,
@@ -41,16 +43,17 @@ const Input: React.FC<InputProps> = (props) => {
 
   return (
     <div className="input">
-      <p className="input__name">{name}</p>
+      <p className="input__label">{label}</p>
       <div className={classes}>
-        {icon}
+        <div className="input__icon">{icon}</div>
         <input
           {...rest}
+          name={name}
           type={type}
           value={value}
           required={required}
           placeholder={placeholder}
-          className="input input__box--content"
+          className={`input input__box--content`}
         />
       </div>
       {errorMessage ? (
