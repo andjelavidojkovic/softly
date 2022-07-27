@@ -8,9 +8,7 @@ import './index.scss';
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <MainWrapper>
-        <RouteComponent />
-      </MainWrapper>
+      <RouteComponent />
     </BrowserRouter>
   );
 };
