@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
 import './Input.styles.scss';
-import InfoIcon from '../../icons/Info.icon';
 
 type InputProps = {
   type?: string;
@@ -45,7 +44,7 @@ const Input: React.FC<InputProps> = (props) => {
     <div className="input">
       <p className="input__label">{label}</p>
       <div className={classes}>
-        <div className="input__icon">{icon}</div>
+        <div className="input__icon">{error ? icon : null}</div>
         <input
           {...rest}
           name={name}
@@ -56,11 +55,8 @@ const Input: React.FC<InputProps> = (props) => {
           className={`input input__box--content`}
         />
       </div>
-      {errorMessage ? (
-        <span className="input__error-msg">
-          <InfoIcon />
-          {errorMessage}
-        </span>
+      {error ? (
+        <span className="input__error-msg">{errorMessage}</span>
       ) : (
         <p></p>
       )}

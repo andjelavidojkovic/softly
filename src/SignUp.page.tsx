@@ -8,16 +8,23 @@ import './SignUp.style.scss';
 import axios from './axios';
 import ErrorIcon from './icons/Error.icon';
 
-const USER_REGEX = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+// eslint-disable-next-line no-useless-escape
+const USER_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z]).{6,24}$/;
+const FIRST_NAME_REGEX = /^[A-Z]+([a-z])/;
 
 type ErrMsg = {
   email?: string;
   password?: string;
   repeatPassword?: string;
+  firstName?: string;
+  lastName?: string;
 };
 
 const SignUp = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
   const [email, setEmail] = useState('');
   const [validEmail, setValidEmail] = useState(false);
 
@@ -29,7 +36,13 @@ const SignUp = () => {
 
   const [success, setSuccess] = useState(false);
 
-  const [errors, setErrors] = useState({ email: '', pwd: '', matchPwd: '' });
+  const [errors, setErrors] = useState<Record<string, string>>({
+    email: '',
+    pwd: '',
+    matchPwd: '',
+    firstName: '',
+    lastName: '',
+  });
 
   useEffect(() => {
     const result = USER_REGEX.test(email);
@@ -47,17 +60,69 @@ const SignUp = () => {
     setValidMatch(match);
   }, [pwd, matchPwd]);
 
+  useEffect(() => {
+    setErrors((oldErrors) => {
+      return {
+        ...oldErrors,
+        pwd: oldErrors.pwd,
+        matchPwd: oldErrors.matchPwd,
+        firstName: oldErrors.firstName,
+        lastName: oldErrors.lastName,
+      };
+    });
+  }, [email]);
+
+  useEffect(() => {
+    setErrors({
+      email: errors.email,
+      pwd: '',
+      matchPwd: errors.matchPwd,
+      firstName: errors.firstName,
+      lastName: errors.lastName,
+    });
+  }, [pwd]);
+
+  useEffect(() => {
+    setErrors({
+      email: errors.email,
+      pwd: errors.pwd,
+      matchPwd: '',
+      firstName: errors.firstName,
+      lastName: errors.lastName,
+    });
+  }, [matchPwd]);
+
+  useEffect(() => {
+    setErrors({
+      email: errors.email,
+      pwd: errors.pwd,
+      matchPwd: '',
+      firstName: '',
+      lastName: errors.lastName,
+    });
+  }, [firstName]);
+
+  useEffect(() => {
+    setErrors({
+      email: errors.email,
+      pwd: errors.pwd,
+      matchPwd: '',
+      firstName: errors.firstName,
+      lastName: '',
+    });
+  }, [lastName]);
+
   const validation = (props: any) => {
     let errors: ErrMsg = {};
 
     if (!props.email) {
       errors.email = 'Email is required.';
-    } else if (!USER_REGEX.test(props.email)) {
+    } else if (!validEmail) {
       errors.email = 'Invalid form of the email.';
     }
     if (!props.pwd) {
       errors.password = 'Password is required.';
-    } else if (!PWD_REGEX.test(props.pwd)) {
+    } else if (!validPwd) {
       errors.password = 'Password must contain minimum 6 characters';
     }
     if (!props.matchPwd) {
@@ -65,27 +130,52 @@ const SignUp = () => {
     } else if (!validMatch) {
       errors.repeatPassword = 'Password must match the one entered above.';
     }
+    if (!props.firstName) {
+      errors.firstName = 'Name is required.';
+    } else if (!FIRST_NAME_REGEX.test(props.firstName)) {
+      errors.firstName =
+        'Name must start with the capital letter and should have minumun 2 letters.';
+    }
+    if (!props.lastName) {
+      errors.lastName = 'Last name is required.';
+    }
     return errors;
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const err: ErrMsg = validation({ email, pwd, matchPwd });
+    const err: ErrMsg = validation({
+      email,
+      pwd,
+      matchPwd,
+      firstName,
+      lastName,
+    });
     setErrors({
       email: err.email,
       pwd: err.password,
       matchPwd: err.repeatPassword,
+      firstName: err.firstName,
+      lastName: err.lastName,
     });
     try {
       const response = await axios.post(
         '/users/signup',
-        JSON.stringify({ email: email, password: pwd }),
+        JSON.stringify({
+          email: email,
+          password: pwd,
+          firstName: firstName,
+          lastName: lastName,
+        }),
         {
           headers: { 'Content-Type': 'application/json' },
         },
       );
       console.log(response);
       console.log(response.data);
+      const id = response.data.id;
+      console.log(id);
+      localStorage.setItem('id', id);
       setSuccess(true);
     } catch (err) {
       console.log(err);
@@ -105,14 +195,47 @@ const SignUp = () => {
           <p> CREATE </p>
           <form className="sign-up__form" onSubmit={handleSubmit}>
             <Input
+              value={firstName}
+              name="firstName"
+              type="text"
+              label="First Name"
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+              error={errors.firstName ? true : false}
+              icon={
+                errors.firstName ? <ErrorIcon height="24" width="24" /> : false
+              }
+              iconPosition="right"
+            />
+            {errors.firstName && (
+              <p className="sign-up__form__err-msg">{errors.firstName}</p>
+            )}
+            <Input
+              value={lastName}
+              name="lastName"
+              type="text"
+              label="Last Name"
+              onChange={(e) => setLastName(e.target.value)}
+              error={errors.lastName ? true : false}
+              icon={
+                errors.lastName ? <ErrorIcon height="24" width="24" /> : false
+              }
+              iconPosition="right"
+            />
+            {errors.lastName && (
+              <p className="sign-up__form__err-msg">{errors.lastName}</p>
+            )}
+            <Input
               value={email}
               name="email"
               type="text"
               label="Email"
               onChange={(e) => setEmail(e.target.value)}
               error={errors.email ? true : false}
-              icon={errors.pwd ? <ErrorIcon height="24" width="24" /> : false}
+              icon={errors.email ? <ErrorIcon height="24" width="24" /> : false}
               iconPosition="right"
+              errorMessage={errors.email}
             />
             {errors.email && (
               <p className="sign-up__form__err-msg">{errors.email}</p>
@@ -130,19 +253,21 @@ const SignUp = () => {
             {errors.pwd && (
               <p className="sign-up__form__err-msg">{errors.pwd}</p>
             )}
-            <Input
+            {/* <Input
               value={matchPwd}
-              name="repeat-password"
+              name="repeatPassword"
               type="password"
               label="Repeat Password"
               onChange={(e) => setMatchPwd(e.target.value)}
               error={errors.matchPwd ? true : false}
-              icon={errors.pwd ? <ErrorIcon height="24" width="24" /> : false}
+              icon={
+                errors.matchPwd ? <ErrorIcon height="24" width="24" /> : false
+              }
               iconPosition="right"
             />
             {errors.matchPwd && (
               <p className="sign-up__form__err-msg">{errors.matchPwd}</p>
-            )}
+            )} */}
             <div className="sign-up__form__checkbox">
               <Checkbox
                 label={

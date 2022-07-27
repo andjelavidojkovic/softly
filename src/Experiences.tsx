@@ -1,27 +1,32 @@
 import React from 'react';
-// import Button from './components/Button';
-// import FatArrow from './components/ImageComponents/FatArrow.icon';
+import axios from './axios';
 
 const Experiences = () => {
+  const handleClick = (e: any, id: string, token: string) => {
+    e.preventDefault();
+    const ID = id;
+    const TOKEN = token;
+
+    console.log(`id: ${ID} 
+    token: ${TOKEN}`);
+
+    axios
+      .delete(`/api/users/${ID}`, {
+        headers: {
+          Authorization: TOKEN,
+        },
+      })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
-      {/* <div style={{ margin: "5px" }}>
-        <Button styleForButton="seeMore">
-          See More <FatArrow orientation="right" />
-        </Button>
-      </div>
-
-      <div style={{ margin: "5px" }}>
-        <Button styleForButton="loadMore">
-          Load More <FatArrow orientation="bottom" />
-        </Button>
-      </div>
-
-      <div style={{ margin: "5px" }}>
-        <Button styleForButton="sortBy">
-          Sort By <FatArrow orientation="bottom" />
-        </Button>
-      </div> */}
+      <button
+        onClick={(e) => handleClick(e, localStorage.id, localStorage.token)}
+      >
+        DELETE
+      </button>
     </div>
   );
 };

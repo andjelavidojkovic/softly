@@ -13,10 +13,7 @@
     @include font(12px, 14px);
     margin-bottom: 12px;
     font-style: italic;
-    // background-color: firebrick;
     color: firebrick;
-    // @include border-top-radius(8px);
-    // @include border-bottom-radius(8px);
     padding: 4px;
   }
 
@@ -60,20 +57,4 @@
       }
     }
   }
-}
-
-.nothing {
-  display: none;
-}
-
-.errmsg {
-  background-color: firebrick;
-  color: white;
-  font-size: 12px;
-  border-radius: 8px;
-  width: 80%;
-  text-align: center;
-  padding: 6px;
-  position: relative;
-  top: -30px;
 }

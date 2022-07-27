@@ -34,7 +34,8 @@ const Dropdown = ({ options, children }) => {
     if (!localStorage.getItem('token')) {
       navigate('/login');
     }
-  });
+  }, [navigate]);
+
   return (
     <div className="dropdown">
       <div
