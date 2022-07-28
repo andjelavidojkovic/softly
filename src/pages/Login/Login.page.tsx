@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import Button from '../../components/Button';
 import FieldInput from '../../components/fields/FieldInput';
 import FormWrapper from '../../components/FormWrapper';
@@ -11,6 +11,7 @@ import './Login.styles.scss';
 import { Link } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import utils from '../../utils';
+import Toast from '../../components/Toast';
 
 type LoginFormType = {
   email: string;
@@ -18,6 +19,8 @@ type LoginFormType = {
 };
 
 const LoginPage: React.FC = () => {
+  const [errorMessageFromServer, setErrorMessageFromServer] = useState('');
+
   const handleSubmit = useCallback(async (values: LoginFormType) => {
     console.log(values);
     try {
@@ -31,6 +34,7 @@ const LoginPage: React.FC = () => {
       localStorage.setItem('token', accessToken);
     } catch (error) {
       console.log(error);
+      setErrorMessageFromServer(utils.getStringError(error as AxiosError));
       const errorMessage = utils.getStringError(error as AxiosError);
       console.log(errorMessage);
     }
@@ -38,6 +42,9 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="softly-login">
+      {errorMessageFromServer && (
+        <Toast message={errorMessageFromServer} type="error"></Toast>
+      )}
       <Logo width="210" height="150" />
       <p> LOGIN </p>
       <FormWrapper<LoginFormType>
@@ -58,15 +65,16 @@ const LoginPage: React.FC = () => {
           component={FieldInput}
           type="password"
           label="Password"
-          validate={
-            // validators.general.emptyInput() &&
-            validators.general.validatePassword('Password is not valid')
-          }
+          // validate={
+          //   validators.general.emptyInput() &&
+          //   validators.general.validatePassword('Password is not valid')
+          // }
         />
         <Button variant="primary" type="submit" styleType="link">
           GO
         </Button>
       </FormWrapper>
+      {/* <Toast message="error" type="error"></Toast> */}
       <div className="softly-login__redirect">
         <p>Don't have an account yet?</p>
         <Link to="/signup">Sign up</Link>

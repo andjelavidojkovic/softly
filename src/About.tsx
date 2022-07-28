@@ -1,44 +1,16 @@
 import React from 'react';
-// import Button from './components/Button';
-// import Checkbox from './components/Checkbox';
-// import FatArrow from './components/ImageComponents/FatArrow.icon';
+import Toast from './components/Toast';
 
 const About = () => {
   return (
     <div>
-      {/* <Button variant="primary" styleType="outline">
-        BID
-      </Button>
-      <Button variant="primary" styleType="solid">
-        START
-      </Button>
-      <Button
-        variant="secondary"
-        styleType="link"
-        iconPosition="right"
-        icon={<FatArrow />}
-      >
-        See More
-      </Button>
-      <Button
-        variant="secondary"
-        styleType="link"
-        iconPosition="right"
-        icon={<FatArrow />}
-        rotate="down"
-      >
-        Sort By
-      </Button>
-      <Button
-        variant="secondary"
-        styleType="link"
-        iconPosition="bottom"
-        icon={<FatArrow />}
-        rotate="down"
-      >
-        Load More
-      </Button> */}
-      <div> About</div>
+      <h1>Toastify</h1>
+      <Toast message="error" type="error"></Toast>
+      {/* <Toast message="primary" type="primary"></Toast>
+      <Toast message="secondary" type="secondary"></Toast>
+      <Toast message="info" type="info"></Toast>
+      <Toast message="success" type="success"></Toast>
+      <Toast message="warning" type="warning"></Toast> */}
     </div>
   );
 };
