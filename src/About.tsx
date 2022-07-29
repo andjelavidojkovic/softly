@@ -5,12 +5,12 @@ const About = () => {
   return (
     <div>
       <h1>Toastify</h1>
-      <Toast message="error" type="error"></Toast>
-      {/* <Toast message="primary" type="primary"></Toast>
-      <Toast message="secondary" type="secondary"></Toast>
-      <Toast message="info" type="info"></Toast>
-      <Toast message="success" type="success"></Toast>
-      <Toast message="warning" type="warning"></Toast> */}
+      <Toast message="error" type="error" position="bottom-right"></Toast>
+      <Toast message="warning" type="warning" position="bottom-left"></Toast>
+      <Toast message="success" type="success" position="top-right"></Toast>
+      <Toast message="primary" type="primary" position="top-left"></Toast>
+      <Toast message="secondary" type="secondary" position="center"></Toast>
+      <Toast message="info" type="info" position="top"></Toast>
     </div>
   );
 };

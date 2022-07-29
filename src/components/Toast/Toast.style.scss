@@ -1,14 +1,40 @@
 @use '../../scss/settings' as *;
 
 .toast {
-  padding: 1rem 1rem;
+  @include border-top-radius(4px);
+  @include border-bottom-radius(4px);
+  padding: 16px;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
   width: max-content;
   margin: 5px;
   position: absolute;
-  //   top: 10%;
-  //   bottom: 10%;
+
+  &--position-top-right {
+    top: 0px;
+    right: 0px;
+  }
+  &--position-top-left {
+    top: 0px;
+    left: 0px;
+  }
+  &--position-bottom-left {
+    bottom: 0px;
+    left: 0px;
+  }
+  &--position-bottom-right {
+    bottom: 0px;
+    right: 0px;
+  }
+  &--position-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &--position-top {
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   &--error {
     color: #842029;
@@ -43,22 +69,17 @@
     background-color: #cff4fc;
     border-color: #b6effb;
   }
-}
-
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-}
-.hide {
-  display: none;
+  &__close-btn {
+    @include font(22px, 20px, bold);
+    margin-left: 15px;
+    color: white;
+    float: right;
+    cursor: pointer;
+  }
+  &__close-btn:hover {
+    color: black;
+  }
+  &-hide {
+    display: none;
+  }
 }

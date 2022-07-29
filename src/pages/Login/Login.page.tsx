@@ -35,15 +35,17 @@ const LoginPage: React.FC = () => {
     } catch (error) {
       console.log(error);
       setErrorMessageFromServer(utils.getStringError(error as AxiosError));
-      const errorMessage = utils.getStringError(error as AxiosError);
-      console.log(errorMessage);
     }
   }, []);
 
   return (
     <div className="softly-login">
       {errorMessageFromServer && (
-        <Toast message={errorMessageFromServer} type="error"></Toast>
+        <Toast
+          message={errorMessageFromServer}
+          type="error"
+          position="top"
+        ></Toast>
       )}
       <Logo width="210" height="150" />
       <p> LOGIN </p>
@@ -56,7 +58,7 @@ const LoginPage: React.FC = () => {
           component={FieldInput}
           label="Email"
           validate={
-            // validators.general.emptyInput() &&
+            validators.general.emptyInput() &&
             validators.general.validateEmail('Email is not valid')
           }
         />
@@ -66,7 +68,7 @@ const LoginPage: React.FC = () => {
           type="password"
           label="Password"
           // validate={
-          //   validators.general.emptyInput() &&
+          //   // validators.general.emptyInput() &&
           //   validators.general.validatePassword('Password is not valid')
           // }
         />
