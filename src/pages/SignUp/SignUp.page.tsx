@@ -8,6 +8,7 @@ import axios from '../../axios';
 import FieldInput from '../../components/fields/FieldInput';
 import validators from '../../validators';
 import { composeValidators } from '../../validators/general';
+import './SignUp.style.scss';
 
 type SignUpFormType = {
   email: string;

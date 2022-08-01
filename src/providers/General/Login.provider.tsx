@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { User } from '../../models/User';
 import LoginContext from './Login.context';
 
 type LoginProviderProps = {
@@ -7,18 +9,26 @@ type LoginProviderProps = {
 
 const LoginProvider: React.FC<LoginProviderProps> = (props) => {
   const { children } = props;
-  const [logged, setLogged] = useState<boolean>(false);
-  const [values, setValues] = useState<Record<string, any>>({});
 
-  const isLogged = () => {
-    if (localStorage.getItem('token')) {
-      setLogged(true);
-    }
-    setLogged(false);
-  };
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState<User>(
+    JSON.parse(localStorage.getItem('user')),
+  );
+
+  const isLogged = useMemo(
+    () => user && !!localStorage.getItem('token'),
+    [user],
+  );
+
+  const logout = useCallback(() => {
+    setUser(null);
+    localStorage.clear();
+    navigate({ pathname: '/login' });
+  }, [navigate]);
 
   return (
-    <LoginContext.Provider value={{ values, logged, isLogged }}>
+    <LoginContext.Provider value={{ user, isLogged, setUser, logout }}>
       {children}
     </LoginContext.Provider>
   );

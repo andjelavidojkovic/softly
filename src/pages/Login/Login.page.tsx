@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import Button from '../../components/Button';
 import FieldInput from '../../components/fields/FieldInput';
 import FormWrapper from '../../components/FormWrapper';
@@ -13,6 +13,9 @@ import { AxiosError } from 'axios';
 import utils from '../../utils';
 import Toast from '../../components/Toast';
 import { composeValidators } from '../../validators/general';
+import api from '../../api';
+import { User } from '../../models/User';
+import LoginContext from '../../providers/General/Login.context';
 
 type LoginFormType = {
   email: string;
@@ -28,25 +31,31 @@ const passwordValidator = validators.general.validatePassword(
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
+  const { setUser } = useContext(LoginContext);
+
   const [errorMessageFromServer, setErrorMessageFromServer] = useState('');
 
-  const handleSubmit = useCallback(async (values: LoginFormType) => {
-    console.log(values);
-    try {
-      const response = await axios.post('/users/signin', {
-        email: values.email,
-        password: values.password,
-      });
-      console.log(response);
-      const accessToken = response.data.accessToken;
-      console.log(accessToken);
-      localStorage.setItem('token', accessToken);
-      navigate({ pathname: '/' });
-    } catch (error) {
-      console.log(error);
-      setErrorMessageFromServer(utils.getStringError(error as AxiosError));
-    }
-  }, []);
+  const handleSubmit = useCallback(
+    async (values: LoginFormType) => {
+      try {
+        const { email, password } = values;
+
+        const {
+          data: { accessToken, user },
+        } = await api.auth.login(email, password);
+
+        setUser(user);
+
+        localStorage.setItem('token', accessToken);
+        localStorage.setItem('user', JSON.stringify(user));
+        navigate({ pathname: '/' });
+      } catch (error) {
+        console.log(error);
+        setErrorMessageFromServer(utils.getStringError(error as AxiosError));
+      }
+    },
+    [navigate, setUser],
+  );
 
   console.log(errorMessageFromServer);
 

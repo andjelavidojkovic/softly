@@ -1,14 +1,17 @@
 import React from 'react';
+import { User } from '../../models/User';
 
 export const noop = () => { };
 
 export type LoginContextProps = {
-    values: Record<string, any>;
-    logged: boolean;
-    isLogged: (logged: boolean) => void;
+    user: Record<string, any>;
+    isLogged: boolean
+    setUser: (user: User) => void;
+    logout: () => void;
 }
 export default React.createContext<LoginContextProps>({
-    values: null,
-    logged: false,
-    isLogged: noop
+    user: null,
+    isLogged: false,
+    setUser: noop,
+    logout: noop
 });

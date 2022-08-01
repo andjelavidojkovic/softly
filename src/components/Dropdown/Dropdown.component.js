@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Dropdown.style.css';
 import CustomLink from '../CustomLink/CustomLink.component';
 import '../Navbar/Navbar.style.css';
 import { useNavigate } from 'react-router-dom';
+import LoginContext from '../../providers/General/Login.context';
 
 const Dropdown = ({ options, children }) => {
   const [isActive, setIsActive] = useState(false);
+
+  const { logout } = useContext(LoginContext);
 
   useEffect(() => {
     if (!isActive) return;
@@ -28,13 +31,6 @@ const Dropdown = ({ options, children }) => {
       </div>
     );
   });
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      navigate('/login');
-    }
-  }, [navigate]);
 
   return (
     <div className="dropdown">
@@ -52,11 +48,10 @@ const Dropdown = ({ options, children }) => {
           <div> {renderedOptions} </div>
           <div
             onClick={() => {
-              localStorage.removeItem('token');
+              logout();
             }}
           >
-            {' '}
-            Logout{' '}
+            Logout
           </div>
         </div>
       )}
