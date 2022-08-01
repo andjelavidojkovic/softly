@@ -6,8 +6,8 @@ import Experiences from '../../Experiences';
 import Home from '../../Home';
 import Login from '../../pages/Login';
 import SellingForm from '../../SellingForm';
-import SignUp from '../../SignUp.page';
 import MainWrapper from '../MainWrapper';
+import SignUp from '../../pages/SignUp';
 
 const RouteComponent = () => {
   const isLoggedIn = useMemo(() => localStorage.getItem('token'), []);

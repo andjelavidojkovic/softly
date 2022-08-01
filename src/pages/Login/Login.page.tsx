@@ -8,17 +8,26 @@ import axios from '../../axios';
 import Logo from '../../components/ImageComponents/Logo.icon';
 
 import './Login.styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import utils from '../../utils';
 import Toast from '../../components/Toast';
+import { composeValidators } from '../../validators/general';
 
 type LoginFormType = {
   email: string;
   password: string;
 };
 
+const required = validators.general.required('This field is required');
+const emailValidator = validators.general.validateEmail('Email is not valid');
+const passwordValidator = validators.general.validatePassword(
+  'Password is not valid',
+);
+
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const [errorMessageFromServer, setErrorMessageFromServer] = useState('');
 
   const handleSubmit = useCallback(async (values: LoginFormType) => {
@@ -32,11 +41,14 @@ const LoginPage: React.FC = () => {
       const accessToken = response.data.accessToken;
       console.log(accessToken);
       localStorage.setItem('token', accessToken);
+      navigate({ pathname: '/' });
     } catch (error) {
       console.log(error);
       setErrorMessageFromServer(utils.getStringError(error as AxiosError));
     }
   }, []);
+
+  console.log(errorMessageFromServer);
 
   return (
     <div className="softly-login">
@@ -45,6 +57,7 @@ const LoginPage: React.FC = () => {
           message={errorMessageFromServer}
           type="error"
           position="top"
+          onClose={() => setErrorMessageFromServer(null)}
         ></Toast>
       )}
       <Logo width="210" height="150" />
@@ -57,26 +70,19 @@ const LoginPage: React.FC = () => {
           name="email"
           component={FieldInput}
           label="Email"
-          validate={
-            validators.general.emptyInput() &&
-            validators.general.validateEmail('Email is not valid')
-          }
+          validate={composeValidators(required, emailValidator)}
         />
         <Field
           name="password"
           component={FieldInput}
           type="password"
           label="Password"
-          // validate={
-          //   // validators.general.emptyInput() &&
-          //   validators.general.validatePassword('Password is not valid')
-          // }
+          validate={composeValidators(required, passwordValidator)}
         />
         <Button variant="primary" type="submit" styleType="link">
           GO
         </Button>
       </FormWrapper>
-      {/* <Toast message="error" type="error"></Toast> */}
       <div className="softly-login__redirect">
         <p>Don't have an account yet?</p>
         <Link to="/signup">Sign up</Link>

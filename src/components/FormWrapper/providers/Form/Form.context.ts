@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const noop = () => {};
+export const noop = () => { };
 
 export type FormContextProps = {
   values: Record<string, any>;

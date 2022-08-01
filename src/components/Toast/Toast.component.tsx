@@ -7,10 +7,11 @@ type ToastProps = {
   type: string;
   message: string;
   position?: string;
+  onClose?: () => void;
 };
 
 const Toast: React.FC<ToastProps> = (props) => {
-  const { type, message, position } = props;
+  const { type, message, position, onClose } = props;
 
   const [isShow, setIsShow] = useState(true);
 
@@ -24,11 +25,12 @@ const Toast: React.FC<ToastProps> = (props) => {
   useEffect(() => {
     const timeId = setTimeout(() => {
       setIsShow(false);
+      onClose();
     }, 5000);
     return () => {
       clearTimeout(timeId);
     };
-  }, []);
+  }, [onClose]);
 
   const handleClose = (e: any) => {
     e.preventDefault();
