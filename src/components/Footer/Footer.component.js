@@ -1,15 +1,15 @@
-import React from "react";
-import "./Footer.style.css";
+import React from 'react';
+import './Footer.style.css';
 
 const Footer = () => {
   const socialMedias = [
-    "Facebook",
-    "LinkedIn",
-    "Twitter",
-    "Instagram",
-    "Youtube",
+    'Facebook',
+    'LinkedIn',
+    'Twitter',
+    'Instagram',
+    'Youtube',
   ];
-  const legalRights = ["Privacy Policy", "Terms of Use", "Cookies"];
+  const legalRights = ['Privacy Policy', 'Terms of Use', 'Cookies'];
   return (
     <footer className="footer">
       <div className="footer__contact">

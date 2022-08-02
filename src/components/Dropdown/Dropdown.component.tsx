@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import './Dropdown.style.css';
+import './Dropdown.style.scss';
 import CustomLink from '../CustomLink/CustomLink.component';
-import '../Navbar/Navbar.style.css';
-import { useNavigate } from 'react-router-dom';
+import '../Navbar/Navbar.style.scss';
 import LoginContext from '../../providers/General/Login.context';
 
-const Dropdown = ({ options, children }) => {
+const Dropdown = ({
+  options,
+  children,
+}: {
+  options: { to: string; value: string }[];
+  children: JSX.Element;
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   const { logout } = useContext(LoginContext);
@@ -47,6 +52,7 @@ const Dropdown = ({ options, children }) => {
         <div className="dropdown__content">
           <div> {renderedOptions} </div>
           <div
+            className="dropdown__item"
             onClick={() => {
               logout();
             }}

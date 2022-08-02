@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import './Navbar.style.css';
+import './Navbar.style.scss';
 import Logo from '../ImageComponents/Logo.icon';
-// import Button from '../Button';
 import MenuBurger from '../ImageComponents/MenuBurger.icon';
 import CustomLink from '../CustomLink/CustomLink.component';
 import Dropdown from '../Dropdown/Dropdown.component';
+import LoginContext from '../../providers/General/Login.context';
+import Button from '../Button';
 
 const options = [
   {
@@ -23,6 +24,8 @@ const options = [
 ];
 
 const Navbar = () => {
+  const { isLogged, logout } = useContext(LoginContext);
+
   return (
     <nav className="navbar">
       <div className="navbar__logo">
@@ -33,9 +36,23 @@ const Navbar = () => {
         <CustomLink to="/auctions">Auctions</CustomLink>
         <CustomLink to="/sellingform">Experiences</CustomLink>
       </ul>
-      <div className="navbar__link--login">
-        <NavLink to="/login">Login</NavLink>
-      </div>
+      {isLogged ? (
+        <div className="navbar__logout">
+          <Button
+            variant="tertiary"
+            styleType="link"
+            onClick={() => {
+              logout();
+            }}
+          >
+            Logout
+          </Button>
+        </div>
+      ) : (
+        <div className="navbar__link--log">
+          <NavLink to="/login">Login</NavLink>
+        </div>
+      )}
       <div className="navbar__menu-burger">
         <Dropdown options={options}>
           <MenuBurger />

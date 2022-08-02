@@ -1,14 +1,15 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import Field from '../../components/FormWrapper/components/Field';
 import Logo from '../../components/ImageComponents/Logo.icon';
 import FormWrapper from '../../components/FormWrapper';
 import Button from '../../components/Button';
-import { Link } from 'react-router-dom';
-import axios from '../../axios';
+import { Link, useNavigate } from 'react-router-dom';
 import FieldInput from '../../components/fields/FieldInput';
 import validators from '../../validators';
 import { composeValidators } from '../../validators/general';
 import './SignUp.style.scss';
+import LoginContext from '../../providers/General/Login.context';
+import api from '../../api';
 
 type SignUpFormType = {
   email: string;
@@ -37,21 +38,31 @@ const pwdLenght = validators.general.passwordLenght(
 const nameValidator = validators.general.validateName('Name is nor valid.');
 
 const LoginPage: React.FC = () => {
-  const handleSubmit = useCallback(async (values: SignUpFormType) => {
-    console.log(values);
-    try {
-      const response = await axios.post('/users/signup', {
-        email: values.email,
-        password: values.password,
-        firstName: values.firstName,
-        lastName: values.lastName,
-      });
-      console.log(response);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  const navigate = useNavigate();
+
+  const { setUser } = useContext(LoginContext);
+
+  const handleSubmit = useCallback(
+    async (values: SignUpFormType) => {
+      console.log(values);
+      try {
+        const { email, password, firstName, lastName } = values;
+
+        const {
+          data: { accessToken, user },
+        } = await api.auth.signup(email, password, firstName, lastName);
+
+        setUser(user);
+
+        localStorage.setItem('token', accessToken);
+        localStorage.setItem('user', JSON.stringify(user));
+        navigate({ pathname: '/' });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [navigate, setUser],
+  );
 
   return (
     <div className="softly-login">
@@ -95,7 +106,7 @@ const LoginPage: React.FC = () => {
           label="Last Name"
           validate={composeValidators(required, nameValidator)}
         />
-        <Button variant="primary" type="submit" styleType="link">
+        <Button variant="primary" type="submit" styleType="outline">
           GO
         </Button>
       </FormWrapper>

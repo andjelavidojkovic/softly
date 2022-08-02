@@ -1,7 +1,7 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import About from '../../About';
-import Auctions from '../../Auctions';
+import Auctions from '../../pages/Auctions/Auctions';
 import Experiences from '../../Experiences';
 import Home from '../../Home';
 import Login from '../../pages/Login';

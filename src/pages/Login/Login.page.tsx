@@ -4,7 +4,6 @@ import FieldInput from '../../components/fields/FieldInput';
 import FormWrapper from '../../components/FormWrapper';
 import Field from '../../components/FormWrapper/components/Field';
 import validators from '../../validators';
-import axios from '../../axios';
 import Logo from '../../components/ImageComponents/Logo.icon';
 
 import './Login.styles.scss';
@@ -14,7 +13,6 @@ import utils from '../../utils';
 import Toast from '../../components/Toast';
 import { composeValidators } from '../../validators/general';
 import api from '../../api';
-import { User } from '../../models/User';
 import LoginContext from '../../providers/General/Login.context';
 
 type LoginFormType = {
@@ -86,9 +84,9 @@ const LoginPage: React.FC = () => {
           component={FieldInput}
           type="password"
           label="Password"
-          validate={composeValidators(required, passwordValidator)}
+          // validate={composeValidators(required, passwordValidator)}
         />
-        <Button variant="primary" type="submit" styleType="link">
+        <Button variant="primary" type="submit" styleType="outline">
           GO
         </Button>
       </FormWrapper>

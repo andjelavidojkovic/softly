@@ -8,5 +8,4 @@ export type User = {
     createdAt: string;
     role: 'guest' | 'admin'
     pictureUrl: string;
-
 }

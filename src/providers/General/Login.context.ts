@@ -5,7 +5,7 @@ export const noop = () => { };
 
 export type LoginContextProps = {
     user: Record<string, any>;
-    isLogged: boolean
+    isLogged: boolean;
     setUser: (user: User) => void;
     logout: () => void;
 }
