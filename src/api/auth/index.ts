@@ -1,5 +1,5 @@
 import { AuthResponse } from "../../models/Auth"
-import { getAssets } from "../../models/Assets"
+import { Assets, PaginatedData } from "../../models/Assets"
 import httpClient from "../httpClient"
 
 const login = async (email: string, password: string) => {
@@ -19,7 +19,7 @@ const signup = async (email: string, password: string, firstName: string, lastNa
 }
 
 const getAssetsList = async () => {
-    return httpClient.get<getAssets>('/assets?$page=1&$limit=10');
+    return httpClient.get<PaginatedData<Assets>>('/assets?$page=1&$limit=10');
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export

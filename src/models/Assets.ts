@@ -25,8 +25,8 @@ export type Assets = {
     id: string;
 }
 
-export type getAssets = {
-    items: Assets;
+export type PaginatedData<T> = {
+    items: T[];
     currentPage: number;
     totalItems: number;
     totalPages: number;
