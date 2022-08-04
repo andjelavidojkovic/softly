@@ -1,0 +1,10 @@
+@use '../../scss/settings' as *;
+
+.auction {
+  @include flex(row, space-evenly, center);
+  flex-wrap: wrap;
+
+  &__slider {
+    @include flex(row, center, center);
+  }
+}
