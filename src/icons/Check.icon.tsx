@@ -1,12 +1,11 @@
 import React from 'react';
-import classNames from 'classnames';
 
 type SvgProps = {
   className?: string;
 } & React.SVGProps<SVGSVGElement>;
 
 // eslint-disable-next-line import/no-anonymous-default-export
-const FatArrow: React.FC<SvgProps> = (props) => {
+const CheckIcon: React.FC<SvgProps> = (props) => {
   const { className, ...rest } = props;
 
   return (
@@ -33,4 +32,4 @@ const FatArrow: React.FC<SvgProps> = (props) => {
   );
 };
 
-export default FatArrow;
+export default CheckIcon;

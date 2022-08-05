@@ -18,8 +18,8 @@ const signup = async (email: string, password: string, firstName: string, lastNa
     })
 }
 
-const getAssetsList = async () => {
-    return httpClient.get<PaginatedData<Assets>>('/assets?$page=1&$limit=10');
+const getAssetsList = async (page: number, limit: number) => {
+    return httpClient.get<PaginatedData<Assets>>(`/assets?$page=${page}&$limit=${limit}`);
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
