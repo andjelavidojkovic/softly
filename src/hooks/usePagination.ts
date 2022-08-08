@@ -6,9 +6,11 @@ type PaginationProps<T = Record<string, any>> = {
   limit?: number;
   currentPage?: number;
   apend?: boolean;
+  startDate?: string;
   apiRequest: (
     page: number,
     limit: number,
+    startDate: string,
   ) => Promise<AxiosResponse<PaginatedData<T>>>;
 };
 
@@ -19,6 +21,7 @@ export default function usePagination<T = Record<string, any>>(
     limit: pLimit = 10,
     currentPage: pCurrentPage = 1,
     apend: pApend = true,
+    startDate,
     apiRequest,
   } = args;
 
@@ -32,7 +35,7 @@ export default function usePagination<T = Record<string, any>>(
     try {
       const {
         data: { items, totalPages },
-      } = await apiRequest(currentPage, limit);
+      } = await apiRequest(currentPage, limit, startDate);
       if (apend) {
         setData((old) => [...old, ...items]);
       } else {
@@ -44,7 +47,7 @@ export default function usePagination<T = Record<string, any>>(
     } catch (err) {
       console.log(err);
     }
-  }, [apiRequest, currentPage, limit]);
+  }, [apend, apiRequest, currentPage, limit, startDate]);
 
   const nextPage = useCallback(() => {
     setCurrentPage((oldPage) => Math.min(oldPage + 1, totalPages));

@@ -17,6 +17,17 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  &__title-live-assets {
+    @include flex(row, space-between, center);
+    gap: 200px;
+    align-self: flex-start;
+
+    > p {
+      @include font(14px, 18px, 800);
+      font-family: Orqquidea;
+      text-transform: uppercase;
+    }
+  }
 }
 
 @media (max-width: 1320px) {
