@@ -9,10 +9,11 @@ import SellingForm from '../../SellingForm';
 import MainWrapper from '../MainWrapper';
 import SignUp from '../../pages/SignUp';
 import LoginContext from '../../providers/General/Login.context';
-import ProfileWallet from '../../pages/ProfileWallet';
+import Profile from '../../pages/Profile';
 import CurrentsBids from '../../pages/CurrentBids';
 import MyHistory from '../../pages/MyHistory';
 import AccountSettings from '../../pages/AccountSettings';
+import Wallet from '../../pages/Wallet';
 
 const RouteComponent = () => {
   const { isLogged } = useContext(LoginContext);
@@ -34,7 +35,8 @@ const RouteComponent = () => {
           <Route path="/auctions" element={<Auctions />} />
           <Route path="/experiences" element={<Experiences />} />
           <Route path="/sellingform" element={<SellingForm />} />
-          <Route path="/profilewallet" element={<ProfileWallet />}>
+          <Route path="/profile" element={<Profile />}>
+            <Route path="wallet" element={<Wallet />} />
             <Route path="currentbids" element={<CurrentsBids />} />
             <Route path="history" element={<MyHistory />} />
             <Route path="accountsettings" element={<AccountSettings />} />

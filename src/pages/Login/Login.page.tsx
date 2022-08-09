@@ -84,7 +84,7 @@ const LoginPage: React.FC = () => {
           component={FieldInput}
           type="password"
           label="Password"
-          // validate={composeValidators(required, passwordValidator)}
+          validate={composeValidators(required, passwordValidator)}
         />
         <Button variant="primary" type="submit" styleType="outline">
           GO

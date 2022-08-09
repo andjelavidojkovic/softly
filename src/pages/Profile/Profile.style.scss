@@ -1,0 +1,5 @@
+@use '../../scss/settings' as *;
+
+.profile {
+  @include flex(row, flex-start, flex-start);
+}

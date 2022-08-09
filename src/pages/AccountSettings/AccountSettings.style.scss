@@ -1,0 +1,14 @@
+@use '../../scss/settings' as *;
+
+.account-settings {
+  color: var(--secondary);
+  margin-left: 80px;
+  margin-top: 94px;
+
+  &__subtitle {
+    @include font(18px, 28px, 800);
+    font-family: Orqqidea;
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+}

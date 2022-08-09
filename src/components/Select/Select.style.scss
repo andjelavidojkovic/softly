@@ -1,0 +1,27 @@
+@use '../../scss/settings' as *;
+
+.select {
+  @include font(18px, 22px);
+  font-family: Bodoni;
+
+  select {
+    @include font(18px, 28px, 400);
+    @include flex(row, space-between, center);
+    @include border-top-radius(4px);
+    @include border-bottom-radius(4px);
+    font-family: Bodoni;
+    color: var(--secondary);
+
+    min-height: 44px;
+    width: 304px;
+    border: 1px solid var(--secondary);
+    background-color: white;
+  }
+
+  &__label {
+    @include font(18px, 22px);
+    margin: 5px;
+    padding-left: 14px;
+    font-weight: 300;
+  }
+}

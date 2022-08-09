@@ -1,0 +1,47 @@
+@use '../../scss/settings' as *;
+
+.sidebar {
+  @include size(210px, 100%);
+  @include flex(column, flex-start, center);
+  background-color: var(--softPink);
+  font-family: 'Orqquidea';
+  color: var(--primary);
+
+  &__avatar {
+    @include flex(column, center, center);
+    margin-bottom: 100px;
+    &-picture {
+      margin-top: 70px;
+      margin-bottom: 14px;
+    }
+    &-name {
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  &__navlinks {
+    align-self: flex-start;
+    list-style: none;
+    li {
+      margin-bottom: 20px;
+      padding-bottom: 6px;
+      padding-top: 6px;
+      padding-left: 34px;
+    }
+    li.active {
+      border-left: 5px solid var(--secondary);
+      padding-left: 29px;
+
+      a {
+        color: var(--secondary);
+      }
+    }
+  }
+
+  a {
+    @include font(14px, 18px, 400);
+    font-family: Bodoni;
+    color: var(--primary);
+  }
+}
