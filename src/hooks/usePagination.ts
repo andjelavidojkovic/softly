@@ -71,5 +71,6 @@ export default function usePagination<T = Record<string, any>>(
     limit,
     loadMore,
     setLimit,
+    setApend,
   };
 }

@@ -32,6 +32,9 @@ const AccountSettings = () => {
       <Heading>Account Settings</Heading>
       <p className="account-settings__subtitle">info</p>
       <Select label="Country" options={options} />
+      <div>
+        <h3>profile photo</h3>
+      </div>
     </div>
   );
 };

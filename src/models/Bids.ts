@@ -26,3 +26,8 @@ export type ListOfBids<T> = {
   myCurrentBids: T[];
   suggestedAuctionAssets: T[];
 };
+
+export type HistoryBids<T> = {
+  myHistoryAssets: T[];
+  suggestedAuctionAssets: T[];
+};

@@ -45,3 +45,28 @@
     color: var(--primary);
   }
 }
+@media (max-width: 400px) {
+  .sidebar {
+    @include size(100%, 220px);
+    @include flex(row-reverse, space-between, center);
+
+    &__avatar {
+      align-self: center;
+      margin-bottom: 0px;
+      margin-right: 34px;
+      &-picture {
+        margin-top: 0px;
+        margin-bottom: 14px;
+      }
+    }
+
+    &__navlinks {
+      align-self: center;
+      li {
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+      }
+    }
+  }
+}

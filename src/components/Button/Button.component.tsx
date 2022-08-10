@@ -8,8 +8,8 @@ type ButtonProps = {
   icon?: ReactNode;
   iconPosition?: 'right' | 'bottom' | 'left';
   className?: string;
-  variant: 'primary' | 'secondary' | 'tertiary';
-  styleType?: 'solid' | 'outline' | 'link';
+  variant: 'primary' | 'secondary' | 'tertiary' | 'add';
+  styleType?: 'solid' | 'outline' | 'link' | 'fill';
 } & React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement

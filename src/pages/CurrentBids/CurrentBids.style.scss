@@ -1,7 +1,44 @@
 @use '../../scss/settings' as *;
 
-.current-bids {
+.bids {
+  @include flex(column, flex-start, flex-start);
   color: var(--secondary);
   margin-left: 80px;
   margin-top: 94px;
+
+  > p {
+    @include font(14px, 24px, 400);
+    font-family: Bodoni;
+    margin-bottom: 70px;
+    padding-right: 30px;
+    white-space: wrap;
+  }
+
+  &__loading {
+    align-self: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    margin-bottom: 94px;
+  }
+}
+@media (max-width: 1150px) {
+  .bids {
+    margin-left: 50px;
+    &__list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+@media (max-width: 600px) {
+  .bids {
+    margin-top: 44px;
+    margin-left: 30px;
+    &__list {
+      gap: 40px;
+    }
+  }
 }

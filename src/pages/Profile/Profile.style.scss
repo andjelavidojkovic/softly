@@ -3,3 +3,9 @@
 .profile {
   @include flex(row, flex-start, flex-start);
 }
+
+@media (max-width: 400px) {
+  .profile {
+    @include flex(column, flex-start, flex-start);
+  }
+}

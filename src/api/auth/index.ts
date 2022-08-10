@@ -1,7 +1,7 @@
 import { AuthResponse } from '../../models/Auth';
 import { Assets, PaginatedData } from '../../models/Assets';
 import httpClient from '../httpClient';
-import { Bids, ListOfBids } from '../../models/Bids';
+import { Bids, HistoryBids, ListOfBids } from '../../models/Bids';
 
 const login = async (email: string, password: string) => {
   return httpClient.post<AuthResponse>('/users/signin', {
@@ -54,6 +54,10 @@ const getMyBids = async () => {
   return httpClient.get<ListOfBids<Bids>>(`/users/me/currentBids`);
 };
 
+const getMyHistoryBids = async () => {
+  return httpClient.get<HistoryBids<Bids>>(`/users/me/history`);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   login,
@@ -62,4 +66,5 @@ export default {
   getLiveAssetsList,
   getUpcomingAssetsList,
   getMyBids,
+  getMyHistoryBids,
 };

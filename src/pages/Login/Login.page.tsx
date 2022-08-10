@@ -22,9 +22,9 @@ type LoginFormType = {
 
 const required = validators.general.required('This field is required');
 const emailValidator = validators.general.validateEmail('Email is not valid');
-const passwordValidator = validators.general.validatePassword(
-  'Password is not valid',
-);
+// const passwordValidator = validators.general.validatePassword(
+//   'Password is not valid',
+// );
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -84,7 +84,7 @@ const LoginPage: React.FC = () => {
           component={FieldInput}
           type="password"
           label="Password"
-          validate={composeValidators(required, passwordValidator)}
+          // validate={composeValidators(required, passwordValidator)}
         />
         <Button variant="primary" type="submit" styleType="outline">
           GO

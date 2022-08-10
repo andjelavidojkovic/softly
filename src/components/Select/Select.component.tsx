@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React from 'react';
 import './Select.style.scss';
 
@@ -20,7 +19,9 @@ const Select: React.FC<SelectProps> = (props) => {
       <p className="select__label">{label}</p>
       <select {...rest} className="sss">
         {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option value={option.value} key={option.value}>
+            {option.label}
+          </option>
         ))}
       </select>
     </div>

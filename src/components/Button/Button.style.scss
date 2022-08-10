@@ -33,6 +33,22 @@
   &--solid {
     border-width: 0px;
   }
+  &--fill {
+    background-color: var(--secondary);
+    @include size(332px, 54px);
+    @include border-top-radius(8px);
+    @include border-bottom-radius(8px);
+    padding: 0px;
+  }
+  &--add {
+    @include size(35px, 35px);
+    @include font(18px, 22px, 700);
+    @include border-top-radius(30px);
+    @include border-bottom-radius(30px);
+    border: 1px solid var(--secondary);
+    font-family: Bodoni;
+    margin-left: 10px;
+  }
   &--secondary {
     @include size(150px, auto);
     @include flex(row, center, center);

@@ -1,0 +1,38 @@
+@use '../../scss/settings' as *;
+
+.wallet {
+  @include flex(row, flex-start, flex-end);
+  gap: 110px;
+  margin-left: 80px;
+  margin-top: 94px;
+
+  &__add-btn {
+    @include flex(row, flex-start, center);
+    @include font(14px, 16px, 400);
+    @include size(332px, 54px);
+    @include border-top-radius(8px);
+    @include border-bottom-radius(8px);
+    border: 1px dashed var(--secondary);
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  &__balance {
+    margin-bottom: 14px;
+    > p {
+      @include font(20px, 24px, 800);
+      text-transform: uppercase;
+      font-family: Orqquidea;
+      margin-bottom: 5px;
+    }
+
+    &-amount {
+      @include flex(row, flex-end, center);
+      @include size(480px, 122px);
+      @include font(60px, 72px, 400);
+      border-top: 1px solid var(--secondary);
+      border-bottom: 1px solid var(--secondary);
+      font-family: Bodoni;
+    }
+  }
+}
