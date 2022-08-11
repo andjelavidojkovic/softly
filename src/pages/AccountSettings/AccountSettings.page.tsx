@@ -1,40 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Heading from '../../components/Heading';
-import Select from '../../components/Select';
+import ImageUpload from '../../components/ImageUpload';
+import PasswordReset from '../../components/PasswordReset';
+import UserSettings from '../../components/UserSettings';
+import LoginContext, {
+  LoginContextProps,
+} from '../../providers/General/Login.context';
 import './AccountSettings.style.scss';
 
-const options = [
-  {
-    value: 'serbia',
-    label: 'Serbia',
-  },
-  {
-    value: 'turkey',
-    label: 'Turkey',
-  },
-  {
-    value: 'spain',
-    label: 'Spain',
-  },
-  {
-    value: 'russia',
-    label: 'Russia',
-  },
-  {
-    value: 'norway',
-    label: 'Norway',
-  },
-];
-
 const AccountSettings = () => {
+  const {
+    user: { id },
+  }: LoginContextProps = useContext(LoginContext);
+  console.log(id);
+
   return (
     <div className="account-settings">
       <Heading>Account Settings</Heading>
-      <p className="account-settings__subtitle">info</p>
-      <Select label="Country" options={options} />
-      <div>
-        <h3>profile photo</h3>
-      </div>
+      <UserSettings id={id} />
+      <PasswordReset />
+      <ImageUpload />
     </div>
   );
 };

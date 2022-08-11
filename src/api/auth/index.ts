@@ -58,6 +58,41 @@ const getMyHistoryBids = async () => {
   return httpClient.get<HistoryBids<Bids>>(`/users/me/history`);
 };
 
+const userSetup = async (
+  id: string,
+  email: string,
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  postCode: string,
+  country: string,
+) => {
+  return httpClient.patch(`users/${id}`, {
+    email,
+    firstName,
+    lastName,
+    phoneNumber,
+    postCode,
+    country,
+  });
+};
+
+const passwordReset = async (
+  oldPassword: string,
+  newPassword: string,
+  confirmNewPassword: string,
+) => {
+  return httpClient.patch('users/password', {
+    oldPassword,
+    newPassword,
+    confirmNewPassword,
+  });
+};
+
+const imageUpload = async (file: string) => {
+  return httpClient.post('/users/upload', file);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   login,
@@ -67,4 +102,7 @@ export default {
   getUpcomingAssetsList,
   getMyBids,
   getMyHistoryBids,
+  userSetup,
+  passwordReset,
+  imageUpload,
 };

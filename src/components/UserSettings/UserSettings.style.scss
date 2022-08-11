@@ -1,0 +1,21 @@
+@use '../../scss/settings' as *;
+.user-settings {
+  > p {
+    @include font(18px, 22px, 800);
+    text-transform: uppercase;
+    font-family: Orqquidea;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+  &__form {
+    @include flex(column, flex-start, flex-end);
+
+    &__fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 64px;
+      row-gap: 50px;
+      margin-bottom: 50px;
+    }
+  }
+}

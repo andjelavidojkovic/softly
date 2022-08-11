@@ -34,9 +34,8 @@
     @include border-top-radius(4px);
     @include border-bottom-radius(4px);
 
-    min-height: 44px;
-    max-width: 304px;
-    // margin: 0 0 5px 5px;
+    height: 44px;
+    width: 304px;
     border: 1px solid var(--secondary);
     background-color: white;
 
