@@ -18,8 +18,11 @@ const AccountSettings = () => {
     <div className="account-settings">
       <Heading>Account Settings</Heading>
       <UserSettings id={id} />
-      <PasswordReset />
-      <ImageUpload />
+      <div className="account-settings__col2">
+        <PasswordReset />
+        <ImageUpload />
+      </div>
+      <p>kyc status</p>
     </div>
   );
 };

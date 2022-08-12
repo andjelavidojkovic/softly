@@ -89,7 +89,7 @@ const passwordReset = async (
   });
 };
 
-const imageUpload = async (file: string) => {
+const imageUpload = async (file: any) => {
   return httpClient.post('/users/upload', file);
 };
 
