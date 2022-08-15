@@ -12,7 +12,6 @@ const AccountSettings = () => {
   const {
     user: { id },
   }: LoginContextProps = useContext(LoginContext);
-  console.log(id);
 
   return (
     <div className="account-settings">

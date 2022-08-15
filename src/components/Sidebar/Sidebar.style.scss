@@ -45,7 +45,7 @@
     color: var(--primary);
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 670px) {
   .sidebar {
     @include size(100%, 220px);
     @include flex(row-reverse, space-between, center);

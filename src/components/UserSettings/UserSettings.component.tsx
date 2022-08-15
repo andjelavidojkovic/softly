@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import api from '../../api';
+import VectorArrow from '../../icons/VectorArrow.icon';
 import Button from '../Button';
 import FieldInput from '../fields/FieldInput';
 import FieldSelect from '../fields/FieldSelect';
@@ -66,6 +67,9 @@ const UserSettings: React.FC<UserSettingsProps> = (props) => {
     },
     [id],
   );
+
+  const [selected, setSelected] = useState('');
+
   return (
     <div className="user-settings">
       <p>info</p>
@@ -73,23 +77,35 @@ const UserSettings: React.FC<UserSettingsProps> = (props) => {
         className="user-settings__form"
         onSubmit={handleSubmit}
       >
-        <div className="user-settings__form__fields">
-          <Field name="firstName" component={FieldInput} label="First Name" />
-          <Field name="lastName" component={FieldInput} label="Last Name" />
-          <Field name="email" component={FieldInput} label="Email" />
-          <Field name="phoneNumber" component={FieldInput} label="Phone No." />
-          <Field
-            name="postcode"
-            component={FieldInput}
-            label="Postcode"
-            placeholder="8888"
-          />
-          <Field
-            name="country"
-            component={FieldSelect}
-            label="Country"
-            options={options}
-          />
+        <div className="user-settings__form__field">
+          <div className="user-settings__form__field__col">
+            <Field name="firstName" component={FieldInput} label="First Name" />
+            <Field name="lastName" component={FieldInput} label="Last Name" />
+            <Field name="email" component={FieldInput} label="Email" />
+          </div>
+          <div className="user-settings__form__field__col">
+            <Field
+              name="phoneNumber"
+              component={FieldInput}
+              label="Phone No."
+            />
+            <Field
+              name="postcode"
+              component={FieldInput}
+              label="Postcode"
+              placeholder="8888"
+            />
+            <Field
+              name="country"
+              component={FieldSelect}
+              label="Country"
+              options={options}
+              selected={selected}
+              setSelected={setSelected}
+              icon={<VectorArrow />}
+              iconPosition="right"
+            />
+          </div>
         </div>
 
         <Button variant="primary" type="submit" styleType="outline">

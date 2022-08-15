@@ -1,27 +1,67 @@
 @use '../../scss/settings' as *;
 
 .select {
+  position: relative;
   @include font(18px, 22px);
   font-family: Bodoni;
 
-  select {
-    @include font(18px, 28px, 400);
-    @include flex(row, space-between, center);
-    @include border-top-radius(4px);
-    @include border-bottom-radius(4px);
-    font-family: Bodoni;
-    color: var(--secondary);
-
-    height: 44px;
-    width: 304px;
-    border: 1px solid var(--secondary);
-    background-color: white;
-  }
-
   &__label {
-    @include font(18px, 22px);
+    @include font(18px, 22px, 300);
     margin: 5px;
     padding-left: 14px;
-    font-weight: 300;
+  }
+  &__btn {
+    @include flex(row, space-between, center);
+    @include border-top-radius(4px);
+    padding-left: 16px;
+    min-height: 44px;
+    max-width: 304px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+    &--close {
+      @include border-bottom-radius(4px);
+    }
+  }
+  &__content {
+    @include font(18px, 22px, 400);
+    text-align: start;
+    color: var(--secondary);
+    position: absolute;
+    right: 0px;
+    background-color: white;
+    width: 304px;
+    max-height: 184px;
+    border-bottom: 1px solid var(--secondary);
+    border-left: 1px solid var(--secondary);
+    border-right: 1px solid var(--secondary);
+    overflow-y: scroll;
+    &__item {
+      padding: 20px;
+      cursor: pointer;
+    }
+    &__item:hover {
+      background: var(--softPink);
+      color: var(--primary);
+      font-weight: 600;
+    }
+  }
+  &__content::-webkit-scrollbar {
+    width: 14px;
+  }
+  &__content::-webkit-scrollbar-thumb {
+    background-color: rgb(219, 219, 219);
+  }
+  &__icon {
+    padding-right: 16px;
+    position: relative;
+    top: -3px;
+    &--row-reverse {
+      flex-direction: row-reverse;
+    }
+    &--open {
+      top: 2px;
+      transform: rotateX(180deg);
+    }
   }
 }
