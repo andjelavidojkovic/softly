@@ -15,7 +15,7 @@ const AccountSettings = () => {
 
   return (
     <div className="account-settings">
-      <Heading>Account Settings</Heading>
+      <Heading className="account-settings__titles">Account Settings</Heading>
       <UserSettings id={id} />
       <div className="account-settings__col2">
         <PasswordReset />

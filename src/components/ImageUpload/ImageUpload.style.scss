@@ -9,3 +9,10 @@
     margin-bottom: 40px;
   }
 }
+@media (max-width: 440px) {
+  .image-upload {
+    > p {
+      @include font(14px, 16px, 800);
+    }
+  }
+}

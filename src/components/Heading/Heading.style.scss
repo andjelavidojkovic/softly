@@ -1,7 +1,7 @@
 @use '../../scss/settings' as *;
 
 .h3-heading {
-  font-family: 'Bodoni 72';
+  font-family: Bodoni;
   font-size: 36px;
   font-weight: 700;
   line-height: 40px;
@@ -20,5 +20,10 @@
 @media (max-width: 750px) {
   .login-page__heading {
     margin-left: 4%;
+  }
+}
+@media (max-width: 440px) {
+  .account-settings__titles {
+    @include font(18px, 28px, 700);
   }
 }

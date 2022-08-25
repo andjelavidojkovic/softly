@@ -27,3 +27,12 @@
     }
   }
 }
+@media (max-width: 440px) {
+  .account-settings {
+    margin-left: 35px;
+    margin-top: 45px;
+    > p {
+      @include font(14px, 16px, 800);
+    }
+  }
+}
