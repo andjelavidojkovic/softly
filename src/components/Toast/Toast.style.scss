@@ -1,0 +1,85 @@
+@use '../../scss/settings' as *;
+
+.toast {
+  @include border-top-radius(4px);
+  @include border-bottom-radius(4px);
+  padding: 16px;
+  border: 1px solid transparent;
+  width: max-content;
+  margin: 5px;
+  position: absolute;
+
+  &--position-top-right {
+    top: 0px;
+    right: 0px;
+  }
+  &--position-top-left {
+    top: 0px;
+    left: 0px;
+  }
+  &--position-bottom-left {
+    bottom: 0px;
+    left: 0px;
+  }
+  &--position-bottom-right {
+    bottom: 0px;
+    right: 0px;
+  }
+  &--position-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &--position-top {
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &--error {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+  }
+  &--success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+  }
+
+  &--warning {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+  }
+  &--primary {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+  }
+
+  &--secondary {
+    color: #41464b;
+    background-color: #e2e3e5;
+    border-color: #d3d6d8;
+  }
+
+  &--info {
+    color: #055160;
+    background-color: #cff4fc;
+    border-color: #b6effb;
+  }
+  &__close-btn {
+    @include font(22px, 20px, bold);
+    margin-left: 15px;
+    color: white;
+    float: right;
+    cursor: pointer;
+  }
+  &__close-btn:hover {
+    color: black;
+  }
+  &-hide {
+    display: none;
+  }
+}

@@ -1,0 +1,46 @@
+@use '../../scss/settings' as *;
+
+.auction {
+  @include flex(column, space-evenly, center);
+
+  &__offer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-self: stretch;
+  }
+
+  &__slider {
+    @include flex(row, center, center);
+  }
+
+  &__btn-load-more {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__title-live-assets {
+    @include flex(row, space-between, center);
+    gap: 200px;
+    align-self: flex-start;
+
+    > p {
+      @include font(14px, 18px, 800);
+      font-family: Orqquidea;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media (max-width: 1320px) {
+  .auction {
+    &__offer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media (max-width: 850px) {
+  .auction {
+    &__offer {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

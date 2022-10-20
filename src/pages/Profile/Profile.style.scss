@@ -1,0 +1,11 @@
+@use '../../scss/settings' as *;
+
+.profile {
+  @include flex(row, flex-start, flex-start);
+}
+
+@media (max-width: 670px) {
+  .profile {
+    @include flex(column, flex-start, flex-start);
+  }
+}

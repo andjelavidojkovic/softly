@@ -1,0 +1,17 @@
+@use './scss/settings' as *;
+
+.login {
+  @include flex(column, flex-start, center);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  > p {
+    @include font(20px, 26px);
+    font-family: Bodoni;
+    padding-top: 30px;
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+}

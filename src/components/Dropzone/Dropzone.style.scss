@@ -1,0 +1,37 @@
+@use '../../scss/settings' as *;
+.dropzone {
+  @include flex(column, flex-end, flex-end);
+
+  &__field {
+    @include border-top-radius(3px);
+    @include border-bottom-radius(3px);
+    @include flex(row, center, center);
+    border: 1px dashed var(--secondary);
+    min-height: 96px;
+    min-width: 304px;
+    margin-bottom: 50px;
+
+    &__simbol-add {
+      @include flex(row, center, center);
+      @include size(35px, 35px);
+      @include font(18px, 22px, 700);
+      @include border-top-radius(30px);
+      @include border-bottom-radius(30px);
+      border: 1px solid var(--secondary);
+      font-family: Bodoni;
+      &-none {
+        display: none;
+      }
+    }
+    &__dashed-box {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+
+      &__upload-image {
+        max-height: 96px;
+        max-width: 200px;
+        margin: 8px;
+      }
+    }
+  }
+}

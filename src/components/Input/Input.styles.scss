@@ -1,0 +1,57 @@
+@use '../../scss/settings' as *;
+.input {
+  @include font(18px, 22px);
+  font-family: Bodoni;
+
+  &__error-msg {
+    position: relative;
+    top: 4px;
+    @include flex(row, flex-start, center);
+    @include font(12px, 14px);
+    margin-bottom: 12px;
+    font-style: italic;
+    color: firebrick;
+    padding: 4px;
+    float: right;
+    right: 10px;
+    max-width: 250px;
+  }
+  &__icon {
+    display: block;
+    position: absolute;
+    padding-right: 10px;
+  }
+
+  &__label {
+    @include font(18px, 22px);
+    margin: 5px;
+    padding-left: 14px;
+    font-weight: 300;
+  }
+
+  &__box {
+    @include flex(row, space-between, center);
+    @include border-top-radius(4px);
+    @include border-bottom-radius(4px);
+
+    height: 44px;
+    width: 304px;
+    border: 1px solid var(--secondary);
+    background-color: white;
+
+    &--row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--content {
+      border: none;
+      outline: none;
+      width: 100%;
+      padding-left: 16px;
+    }
+
+    &--error {
+      border-color: firebrick;
+    }
+  }
+}

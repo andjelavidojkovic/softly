@@ -1,0 +1,6 @@
+@use '../../scss/settings' as *;
+
+a {
+  text-decoration: none;
+  color: var(--secondary);
+}

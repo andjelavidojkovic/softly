@@ -1,0 +1,44 @@
+.dropdown {
+  background: var(--primary);
+  position: relative;
+}
+.dropdown__btn {
+  padding: 0px 20px;
+  background: var(--primary);
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.dropdown__content {
+  padding: 10px;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-family: 'Orqquidea-Sans_(DEMO)';
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 22px;
+  list-style: none;
+  text-align: center;
+  color: var(--secondary);
+  position: absolute;
+  right: 0px;
+  background-color: var(--primary);
+}
+
+.dropdown__content a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dropdown__item {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.dropdown__item:hover {
+  background: var(--softPink);
+  color: var(--primary);
+}
+.dropdown__item:hover a {
+  color: var(--primary);
+}

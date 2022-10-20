@@ -1,0 +1,38 @@
+@use '../../scss/settings' as *;
+
+.account-settings {
+  @include flex(column, flex-start, flex-start);
+  color: var(--secondary);
+  margin-left: 80px;
+  margin-top: 94px;
+
+  &__col2 {
+    @include flex(row, flex-start, flex-start);
+    column-gap: 64px;
+  }
+  > p {
+    @include font(18px, 22px, 800);
+    text-transform: uppercase;
+    font-family: Orqquidea;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 1070px) {
+  .account-settings {
+    &__col2 {
+      @include flex(column, flex-start, flex-start);
+      row-gap: 26px;
+      column-gap: 0;
+    }
+  }
+}
+@media (max-width: 440px) {
+  .account-settings {
+    margin-left: 35px;
+    margin-top: 45px;
+    > p {
+      @include font(14px, 16px, 800);
+    }
+  }
+}

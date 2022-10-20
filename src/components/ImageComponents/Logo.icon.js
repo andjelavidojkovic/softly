@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 // eslint-disable-next-line import/no-anonymous-default-export
-const Logo = () => {
+const Logo = ({ width, height }) => {
   return (
     <svg
-      width="90"
-      height="64"
+      width={width}
+      height={height}
       viewBox="0 0 90 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

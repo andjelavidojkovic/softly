@@ -1,0 +1,29 @@
+@use '../../scss/settings' as *;
+
+.h3-heading {
+  font-family: Bodoni;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  color: #00261c;
+  border-bottom: 5px solid #c9b1a9;
+  padding-bottom: 4px;
+  padding-right: 40px;
+  width: fit-content;
+}
+
+.login-page__heading {
+  margin-top: 60px;
+  margin-left: 14%;
+}
+
+@media (max-width: 750px) {
+  .login-page__heading {
+    margin-left: 4%;
+  }
+}
+@media (max-width: 440px) {
+  .account-settings__titles {
+    @include font(18px, 28px, 700);
+  }
+}

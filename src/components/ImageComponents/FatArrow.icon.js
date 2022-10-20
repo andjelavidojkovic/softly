@@ -1,13 +1,12 @@
-import React from "react";
-import "./FatArrow.style.css";
+import React from 'react';
+import './FatArrow.style.css';
 
 // eslint-disable-next-line import/no-anonymous-default-export
-const FatArrow = ({ orientation }) => {
-  const iconOrientation = `icon icon--${orientation}`;
-
+const FatArrow = () => {
   return (
     <svg
-      className={iconOrientation}
+      height="24"
+      width="18"
       viewBox="0 0 12 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,50 @@
+@use './scss/settings' as *;
+
+.login-page__text {
+  @include font(14px, 28px);
+  margin-left: 14%;
+  max-width: 630px;
+}
+
+.login-page {
+  @include flex(column, center, flex-start);
+
+  &__login-form {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'login-form__row login-form__row'
+      'login-form__btn';
+    grid-column-gap: 50px;
+    grid-row-gap: 70px;
+    margin: 30px 0;
+
+    &__btn {
+      grid-area: 'login-form__btn';
+      grid-column-start: 2;
+    }
+
+    &__row {
+      grid-area: 'login-form__row';
+      @include flex-gap(40px, 'column');
+    }
+  }
+
+  @media (max-width: 650px) {
+    &__login-form {
+      @include flex(column, space-between, center);
+      @include flex-gap(0px, 'row');
+      @include flex-gap(40px, 'column');
+      grid-row-gap: 0px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .login-page__text {
+    @include font(12px, 28px);
+    margin-left: 4%;
+    max-width: fit-content;
+  }
+}
